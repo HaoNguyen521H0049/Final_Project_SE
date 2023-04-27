@@ -64,7 +64,7 @@ namespace Final_Project_SE
 
 		private void btnLogin(object arg)
 		{
-			Application.Run(new frmGoodReceived());
+			Application.Run(new frmMainControlPage());
 		}
 
 		private void button2_Click(object sender, EventArgs e)

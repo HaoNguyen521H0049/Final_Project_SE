@@ -16,5 +16,10 @@ namespace Final_Project_SE
 		{
 			InitializeComponent();
 		}
+
+		private void btnCancel_Click(object sender, EventArgs e)
+		{
+			this.Close();
+		}
 	}
 }

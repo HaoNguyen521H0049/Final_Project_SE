@@ -74,6 +74,12 @@
     <Compile Include="frmGoodReceived.Designer.cs">
       <DependentUpon>frmGoodReceived.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmMainControlPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMainControlPage.Designer.cs">
+      <DependentUpon>frmMainControlPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="DB_Select.resx">
@@ -87,6 +93,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMainControlPage.resx">
+      <DependentUpon>frmMainControlPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
