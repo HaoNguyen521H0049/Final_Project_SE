@@ -54,17 +54,19 @@
 			this.Check_neverExist = new System.Windows.Forms.CheckBox();
 			this.Check_existOnce = new System.Windows.Forms.CheckBox();
 			this.tb_addProduct_i = new System.Windows.Forms.TextBox();
+			this.tb_ProductID_i = new System.Windows.Forms.TextBox();
 			this.cb_selectGood_i = new System.Windows.Forms.ComboBox();
+			this.label11 = new System.Windows.Forms.Label();
 			this.groupBox4 = new System.Windows.Forms.GroupBox();
+			this.btnAdd = new System.Windows.Forms.Button();
 			this.tb_ProductColor = new System.Windows.Forms.TextBox();
 			this.tdks = new System.Windows.Forms.Label();
 			this.tb_ProductMemo = new System.Windows.Forms.TextBox();
-			this.tb_ProductID_i = new System.Windows.Forms.TextBox();
 			this.tb_ProductQuantity_i = new System.Windows.Forms.TextBox();
 			this.label12 = new System.Windows.Forms.Label();
-			this.label11 = new System.Windows.Forms.Label();
 			this.label10 = new System.Windows.Forms.Label();
-			this.btnAdd = new System.Windows.Forms.Button();
+			this.label13 = new System.Windows.Forms.Label();
+			this.textBox1 = new System.Windows.Forms.TextBox();
 			this.groupBox1.SuspendLayout();
 			this.groupBox2.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.DGV_Receipt_i)).BeginInit();
@@ -292,9 +294,11 @@
 			this.groupBox3.Controls.Add(this.tb_ProductID_i);
 			this.groupBox3.Controls.Add(this.cb_selectGood_i);
 			this.groupBox3.Controls.Add(this.label11);
+			this.groupBox3.Controls.Add(this.tb_ProductQuantity_i);
+			this.groupBox3.Controls.Add(this.label10);
 			this.groupBox3.Location = new System.Drawing.Point(12, 204);
 			this.groupBox3.Name = "groupBox3";
-			this.groupBox3.Size = new System.Drawing.Size(307, 96);
+			this.groupBox3.Size = new System.Drawing.Size(337, 96);
 			this.groupBox3.TabIndex = 6;
 			this.groupBox3.TabStop = false;
 			// 
@@ -324,80 +328,23 @@
 			// 
 			this.tb_addProduct_i.Location = new System.Drawing.Point(120, 38);
 			this.tb_addProduct_i.Name = "tb_addProduct_i";
-			this.tb_addProduct_i.Size = new System.Drawing.Size(181, 20);
+			this.tb_addProduct_i.Size = new System.Drawing.Size(211, 20);
 			this.tb_addProduct_i.TabIndex = 2;
+			// 
+			// tb_ProductID_i
+			// 
+			this.tb_ProductID_i.Location = new System.Drawing.Point(120, 65);
+			this.tb_ProductID_i.Name = "tb_ProductID_i";
+			this.tb_ProductID_i.Size = new System.Drawing.Size(97, 20);
+			this.tb_ProductID_i.TabIndex = 4;
 			// 
 			// cb_selectGood_i
 			// 
 			this.cb_selectGood_i.FormattingEnabled = true;
 			this.cb_selectGood_i.Location = new System.Drawing.Point(120, 11);
 			this.cb_selectGood_i.Name = "cb_selectGood_i";
-			this.cb_selectGood_i.Size = new System.Drawing.Size(181, 21);
+			this.cb_selectGood_i.Size = new System.Drawing.Size(211, 21);
 			this.cb_selectGood_i.TabIndex = 0;
-			// 
-			// groupBox4
-			// 
-			this.groupBox4.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-			this.groupBox4.Controls.Add(this.btnAdd);
-			this.groupBox4.Controls.Add(this.tb_ProductColor);
-			this.groupBox4.Controls.Add(this.tdks);
-			this.groupBox4.Controls.Add(this.tb_ProductMemo);
-			this.groupBox4.Controls.Add(this.tb_ProductQuantity_i);
-			this.groupBox4.Controls.Add(this.label12);
-			this.groupBox4.Controls.Add(this.label10);
-			this.groupBox4.Location = new System.Drawing.Point(328, 204);
-			this.groupBox4.Name = "groupBox4";
-			this.groupBox4.Size = new System.Drawing.Size(296, 96);
-			this.groupBox4.TabIndex = 7;
-			this.groupBox4.TabStop = false;
-			// 
-			// tb_ProductColor
-			// 
-			this.tb_ProductColor.Location = new System.Drawing.Point(81, 38);
-			this.tb_ProductColor.Name = "tb_ProductColor";
-			this.tb_ProductColor.Size = new System.Drawing.Size(209, 20);
-			this.tb_ProductColor.TabIndex = 7;
-			// 
-			// tdks
-			// 
-			this.tdks.AutoSize = true;
-			this.tdks.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.tdks.Location = new System.Drawing.Point(6, 39);
-			this.tdks.Name = "tdks";
-			this.tdks.Size = new System.Drawing.Size(39, 16);
-			this.tdks.TabIndex = 6;
-			this.tdks.Text = "Color";
-			// 
-			// tb_ProductMemo
-			// 
-			this.tb_ProductMemo.Location = new System.Drawing.Point(224, 15);
-			this.tb_ProductMemo.Name = "tb_ProductMemo";
-			this.tb_ProductMemo.Size = new System.Drawing.Size(66, 20);
-			this.tb_ProductMemo.TabIndex = 5;
-			// 
-			// tb_ProductID_i
-			// 
-			this.tb_ProductID_i.Location = new System.Drawing.Point(120, 64);
-			this.tb_ProductID_i.Name = "tb_ProductID_i";
-			this.tb_ProductID_i.Size = new System.Drawing.Size(181, 20);
-			this.tb_ProductID_i.TabIndex = 4;
-			// 
-			// tb_ProductQuantity_i
-			// 
-			this.tb_ProductQuantity_i.Location = new System.Drawing.Point(81, 15);
-			this.tb_ProductQuantity_i.Name = "tb_ProductQuantity_i";
-			this.tb_ProductQuantity_i.Size = new System.Drawing.Size(75, 20);
-			this.tb_ProductQuantity_i.TabIndex = 3;
-			// 
-			// label12
-			// 
-			this.label12.AutoSize = true;
-			this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label12.Location = new System.Drawing.Point(162, 16);
-			this.label12.Name = "label12";
-			this.label12.Size = new System.Drawing.Size(56, 16);
-			this.label12.TabIndex = 2;
-			this.label12.Text = "Memory";
 			// 
 			// label11
 			// 
@@ -409,26 +356,100 @@
 			this.label11.TabIndex = 1;
 			this.label11.Text = "Product ID";
 			// 
-			// label10
+			// groupBox4
 			// 
-			this.label10.AutoSize = true;
-			this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label10.Location = new System.Drawing.Point(6, 16);
-			this.label10.Name = "label10";
-			this.label10.Size = new System.Drawing.Size(55, 16);
-			this.label10.TabIndex = 0;
-			this.label10.Text = "Quantity";
+			this.groupBox4.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+			this.groupBox4.Controls.Add(this.textBox1);
+			this.groupBox4.Controls.Add(this.label13);
+			this.groupBox4.Controls.Add(this.btnAdd);
+			this.groupBox4.Controls.Add(this.tb_ProductColor);
+			this.groupBox4.Controls.Add(this.tdks);
+			this.groupBox4.Controls.Add(this.tb_ProductMemo);
+			this.groupBox4.Controls.Add(this.label12);
+			this.groupBox4.Location = new System.Drawing.Point(358, 204);
+			this.groupBox4.Name = "groupBox4";
+			this.groupBox4.Size = new System.Drawing.Size(266, 96);
+			this.groupBox4.TabIndex = 7;
+			this.groupBox4.TabStop = false;
 			// 
 			// btnAdd
 			// 
 			this.btnAdd.BackColor = System.Drawing.Color.RoyalBlue;
 			this.btnAdd.ForeColor = System.Drawing.SystemColors.Control;
-			this.btnAdd.Location = new System.Drawing.Point(81, 64);
+			this.btnAdd.Location = new System.Drawing.Point(50, 64);
 			this.btnAdd.Name = "btnAdd";
-			this.btnAdd.Size = new System.Drawing.Size(209, 26);
+			this.btnAdd.Size = new System.Drawing.Size(197, 26);
 			this.btnAdd.TabIndex = 8;
 			this.btnAdd.Text = "Add";
 			this.btnAdd.UseVisualStyleBackColor = false;
+			// 
+			// tb_ProductColor
+			// 
+			this.tb_ProductColor.Location = new System.Drawing.Point(51, 16);
+			this.tb_ProductColor.Name = "tb_ProductColor";
+			this.tb_ProductColor.Size = new System.Drawing.Size(61, 20);
+			this.tb_ProductColor.TabIndex = 7;
+			// 
+			// tdks
+			// 
+			this.tdks.AutoSize = true;
+			this.tdks.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.tdks.Location = new System.Drawing.Point(6, 17);
+			this.tdks.Name = "tdks";
+			this.tdks.Size = new System.Drawing.Size(39, 16);
+			this.tdks.TabIndex = 6;
+			this.tdks.Text = "Color";
+			// 
+			// tb_ProductMemo
+			// 
+			this.tb_ProductMemo.Location = new System.Drawing.Point(180, 16);
+			this.tb_ProductMemo.Name = "tb_ProductMemo";
+			this.tb_ProductMemo.Size = new System.Drawing.Size(67, 20);
+			this.tb_ProductMemo.TabIndex = 5;
+			// 
+			// tb_ProductQuantity_i
+			// 
+			this.tb_ProductQuantity_i.Location = new System.Drawing.Point(279, 65);
+			this.tb_ProductQuantity_i.Name = "tb_ProductQuantity_i";
+			this.tb_ProductQuantity_i.Size = new System.Drawing.Size(52, 20);
+			this.tb_ProductQuantity_i.TabIndex = 3;
+			// 
+			// label12
+			// 
+			this.label12.AutoSize = true;
+			this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label12.Location = new System.Drawing.Point(118, 17);
+			this.label12.Name = "label12";
+			this.label12.Size = new System.Drawing.Size(56, 16);
+			this.label12.TabIndex = 2;
+			this.label12.Text = "Memory";
+			// 
+			// label10
+			// 
+			this.label10.AutoSize = true;
+			this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label10.Location = new System.Drawing.Point(223, 66);
+			this.label10.Name = "label10";
+			this.label10.Size = new System.Drawing.Size(55, 16);
+			this.label10.TabIndex = 0;
+			this.label10.Text = "Quantity";
+			// 
+			// label13
+			// 
+			this.label13.AutoSize = true;
+			this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label13.Location = new System.Drawing.Point(6, 40);
+			this.label13.Name = "label13";
+			this.label13.Size = new System.Drawing.Size(38, 16);
+			this.label13.TabIndex = 9;
+			this.label13.Text = "Price";
+			// 
+			// textBox1
+			// 
+			this.textBox1.Location = new System.Drawing.Point(50, 39);
+			this.textBox1.Name = "textBox1";
+			this.textBox1.Size = new System.Drawing.Size(197, 20);
+			this.textBox1.TabIndex = 10;
 			// 
 			// frmGoodReceived
 			// 
@@ -498,5 +519,7 @@
 		private System.Windows.Forms.Label label11;
 		private System.Windows.Forms.Label label10;
 		private System.Windows.Forms.Button btnAdd;
+		private System.Windows.Forms.TextBox textBox1;
+		private System.Windows.Forms.Label label13;
 	}
 }
