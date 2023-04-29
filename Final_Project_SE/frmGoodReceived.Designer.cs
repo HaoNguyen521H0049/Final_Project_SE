@@ -51,19 +51,20 @@
 			this.btnCommit = new System.Windows.Forms.Button();
 			this.btnCancel = new System.Windows.Forms.Button();
 			this.groupBox3 = new System.Windows.Forms.GroupBox();
+			this.Check_neverExist = new System.Windows.Forms.CheckBox();
+			this.Check_existOnce = new System.Windows.Forms.CheckBox();
+			this.tb_addProduct_i = new System.Windows.Forms.TextBox();
 			this.cb_selectGood_i = new System.Windows.Forms.ComboBox();
 			this.groupBox4 = new System.Windows.Forms.GroupBox();
-			this.tb_addProduct_i = new System.Windows.Forms.TextBox();
-			this.Check_existOnce = new System.Windows.Forms.CheckBox();
-			this.Check_neverExist = new System.Windows.Forms.CheckBox();
-			this.label10 = new System.Windows.Forms.Label();
-			this.label11 = new System.Windows.Forms.Label();
-			this.label12 = new System.Windows.Forms.Label();
-			this.tb_ProductQuantity_i = new System.Windows.Forms.TextBox();
-			this.tb_ProductID_i = new System.Windows.Forms.TextBox();
-			this.tb_ProductMemo = new System.Windows.Forms.TextBox();
-			this.tdks = new System.Windows.Forms.Label();
 			this.tb_ProductColor = new System.Windows.Forms.TextBox();
+			this.tdks = new System.Windows.Forms.Label();
+			this.tb_ProductMemo = new System.Windows.Forms.TextBox();
+			this.tb_ProductID_i = new System.Windows.Forms.TextBox();
+			this.tb_ProductQuantity_i = new System.Windows.Forms.TextBox();
+			this.label12 = new System.Windows.Forms.Label();
+			this.label11 = new System.Windows.Forms.Label();
+			this.label10 = new System.Windows.Forms.Label();
+			this.btnAdd = new System.Windows.Forms.Button();
 			this.groupBox1.SuspendLayout();
 			this.groupBox2.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.DGV_Receipt_i)).BeginInit();
@@ -288,17 +289,48 @@
 			this.groupBox3.Controls.Add(this.Check_neverExist);
 			this.groupBox3.Controls.Add(this.Check_existOnce);
 			this.groupBox3.Controls.Add(this.tb_addProduct_i);
+			this.groupBox3.Controls.Add(this.tb_ProductID_i);
 			this.groupBox3.Controls.Add(this.cb_selectGood_i);
+			this.groupBox3.Controls.Add(this.label11);
 			this.groupBox3.Location = new System.Drawing.Point(12, 204);
 			this.groupBox3.Name = "groupBox3";
 			this.groupBox3.Size = new System.Drawing.Size(307, 96);
 			this.groupBox3.TabIndex = 6;
 			this.groupBox3.TabStop = false;
 			// 
+			// Check_neverExist
+			// 
+			this.Check_neverExist.AutoSize = true;
+			this.Check_neverExist.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.Check_neverExist.Location = new System.Drawing.Point(6, 38);
+			this.Check_neverExist.Name = "Check_neverExist";
+			this.Check_neverExist.Size = new System.Drawing.Size(78, 20);
+			this.Check_neverExist.TabIndex = 5;
+			this.Check_neverExist.Text = "Add new";
+			this.Check_neverExist.UseVisualStyleBackColor = true;
+			// 
+			// Check_existOnce
+			// 
+			this.Check_existOnce.AutoSize = true;
+			this.Check_existOnce.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.Check_existOnce.Location = new System.Drawing.Point(6, 12);
+			this.Check_existOnce.Name = "Check_existOnce";
+			this.Check_existOnce.Size = new System.Drawing.Size(108, 20);
+			this.Check_existOnce.TabIndex = 4;
+			this.Check_existOnce.Text = "Select Goods";
+			this.Check_existOnce.UseVisualStyleBackColor = true;
+			// 
+			// tb_addProduct_i
+			// 
+			this.tb_addProduct_i.Location = new System.Drawing.Point(120, 38);
+			this.tb_addProduct_i.Name = "tb_addProduct_i";
+			this.tb_addProduct_i.Size = new System.Drawing.Size(181, 20);
+			this.tb_addProduct_i.TabIndex = 2;
+			// 
 			// cb_selectGood_i
 			// 
 			this.cb_selectGood_i.FormattingEnabled = true;
-			this.cb_selectGood_i.Location = new System.Drawing.Point(120, 19);
+			this.cb_selectGood_i.Location = new System.Drawing.Point(120, 11);
 			this.cb_selectGood_i.Name = "cb_selectGood_i";
 			this.cb_selectGood_i.Size = new System.Drawing.Size(181, 21);
 			this.cb_selectGood_i.TabIndex = 0;
@@ -306,13 +338,12 @@
 			// groupBox4
 			// 
 			this.groupBox4.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+			this.groupBox4.Controls.Add(this.btnAdd);
 			this.groupBox4.Controls.Add(this.tb_ProductColor);
 			this.groupBox4.Controls.Add(this.tdks);
 			this.groupBox4.Controls.Add(this.tb_ProductMemo);
-			this.groupBox4.Controls.Add(this.tb_ProductID_i);
 			this.groupBox4.Controls.Add(this.tb_ProductQuantity_i);
 			this.groupBox4.Controls.Add(this.label12);
-			this.groupBox4.Controls.Add(this.label11);
 			this.groupBox4.Controls.Add(this.label10);
 			this.groupBox4.Location = new System.Drawing.Point(328, 204);
 			this.groupBox4.Name = "groupBox4";
@@ -320,54 +351,43 @@
 			this.groupBox4.TabIndex = 7;
 			this.groupBox4.TabStop = false;
 			// 
-			// tb_addProduct_i
+			// tb_ProductColor
 			// 
-			this.tb_addProduct_i.Location = new System.Drawing.Point(120, 57);
-			this.tb_addProduct_i.Name = "tb_addProduct_i";
-			this.tb_addProduct_i.Size = new System.Drawing.Size(181, 20);
-			this.tb_addProduct_i.TabIndex = 2;
+			this.tb_ProductColor.Location = new System.Drawing.Point(81, 38);
+			this.tb_ProductColor.Name = "tb_ProductColor";
+			this.tb_ProductColor.Size = new System.Drawing.Size(209, 20);
+			this.tb_ProductColor.TabIndex = 7;
 			// 
-			// Check_existOnce
+			// tdks
 			// 
-			this.Check_existOnce.AutoSize = true;
-			this.Check_existOnce.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.Check_existOnce.Location = new System.Drawing.Point(6, 20);
-			this.Check_existOnce.Name = "Check_existOnce";
-			this.Check_existOnce.Size = new System.Drawing.Size(108, 20);
-			this.Check_existOnce.TabIndex = 4;
-			this.Check_existOnce.Text = "Select Goods";
-			this.Check_existOnce.UseVisualStyleBackColor = true;
+			this.tdks.AutoSize = true;
+			this.tdks.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.tdks.Location = new System.Drawing.Point(6, 39);
+			this.tdks.Name = "tdks";
+			this.tdks.Size = new System.Drawing.Size(39, 16);
+			this.tdks.TabIndex = 6;
+			this.tdks.Text = "Color";
 			// 
-			// Check_neverExist
+			// tb_ProductMemo
 			// 
-			this.Check_neverExist.AutoSize = true;
-			this.Check_neverExist.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.Check_neverExist.Location = new System.Drawing.Point(6, 57);
-			this.Check_neverExist.Name = "Check_neverExist";
-			this.Check_neverExist.Size = new System.Drawing.Size(78, 20);
-			this.Check_neverExist.TabIndex = 5;
-			this.Check_neverExist.Text = "Add new";
-			this.Check_neverExist.UseVisualStyleBackColor = true;
+			this.tb_ProductMemo.Location = new System.Drawing.Point(224, 15);
+			this.tb_ProductMemo.Name = "tb_ProductMemo";
+			this.tb_ProductMemo.Size = new System.Drawing.Size(66, 20);
+			this.tb_ProductMemo.TabIndex = 5;
 			// 
-			// label10
+			// tb_ProductID_i
 			// 
-			this.label10.AutoSize = true;
-			this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label10.Location = new System.Drawing.Point(6, 16);
-			this.label10.Name = "label10";
-			this.label10.Size = new System.Drawing.Size(55, 16);
-			this.label10.TabIndex = 0;
-			this.label10.Text = "Quantity";
+			this.tb_ProductID_i.Location = new System.Drawing.Point(120, 64);
+			this.tb_ProductID_i.Name = "tb_ProductID_i";
+			this.tb_ProductID_i.Size = new System.Drawing.Size(181, 20);
+			this.tb_ProductID_i.TabIndex = 4;
 			// 
-			// label11
+			// tb_ProductQuantity_i
 			// 
-			this.label11.AutoSize = true;
-			this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label11.Location = new System.Drawing.Point(6, 42);
-			this.label11.Name = "label11";
-			this.label11.Size = new System.Drawing.Size(69, 16);
-			this.label11.TabIndex = 1;
-			this.label11.Text = "Product ID";
+			this.tb_ProductQuantity_i.Location = new System.Drawing.Point(81, 15);
+			this.tb_ProductQuantity_i.Name = "tb_ProductQuantity_i";
+			this.tb_ProductQuantity_i.Size = new System.Drawing.Size(75, 20);
+			this.tb_ProductQuantity_i.TabIndex = 3;
 			// 
 			// label12
 			// 
@@ -379,43 +399,36 @@
 			this.label12.TabIndex = 2;
 			this.label12.Text = "Memory";
 			// 
-			// tb_ProductQuantity_i
+			// label11
 			// 
-			this.tb_ProductQuantity_i.Location = new System.Drawing.Point(81, 15);
-			this.tb_ProductQuantity_i.Name = "tb_ProductQuantity_i";
-			this.tb_ProductQuantity_i.Size = new System.Drawing.Size(75, 20);
-			this.tb_ProductQuantity_i.TabIndex = 3;
+			this.label11.AutoSize = true;
+			this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label11.Location = new System.Drawing.Point(3, 65);
+			this.label11.Name = "label11";
+			this.label11.Size = new System.Drawing.Size(69, 16);
+			this.label11.TabIndex = 1;
+			this.label11.Text = "Product ID";
 			// 
-			// tb_ProductID_i
+			// label10
 			// 
-			this.tb_ProductID_i.Location = new System.Drawing.Point(81, 41);
-			this.tb_ProductID_i.Name = "tb_ProductID_i";
-			this.tb_ProductID_i.Size = new System.Drawing.Size(209, 20);
-			this.tb_ProductID_i.TabIndex = 4;
+			this.label10.AutoSize = true;
+			this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label10.Location = new System.Drawing.Point(6, 16);
+			this.label10.Name = "label10";
+			this.label10.Size = new System.Drawing.Size(55, 16);
+			this.label10.TabIndex = 0;
+			this.label10.Text = "Quantity";
 			// 
-			// tb_ProductMemo
+			// btnAdd
 			// 
-			this.tb_ProductMemo.Location = new System.Drawing.Point(224, 15);
-			this.tb_ProductMemo.Name = "tb_ProductMemo";
-			this.tb_ProductMemo.Size = new System.Drawing.Size(66, 20);
-			this.tb_ProductMemo.TabIndex = 5;
-			// 
-			// tdks
-			// 
-			this.tdks.AutoSize = true;
-			this.tdks.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.tdks.Location = new System.Drawing.Point(6, 68);
-			this.tdks.Name = "tdks";
-			this.tdks.Size = new System.Drawing.Size(39, 16);
-			this.tdks.TabIndex = 6;
-			this.tdks.Text = "Color";
-			// 
-			// tb_ProductColor
-			// 
-			this.tb_ProductColor.Location = new System.Drawing.Point(81, 67);
-			this.tb_ProductColor.Name = "tb_ProductColor";
-			this.tb_ProductColor.Size = new System.Drawing.Size(209, 20);
-			this.tb_ProductColor.TabIndex = 7;
+			this.btnAdd.BackColor = System.Drawing.Color.RoyalBlue;
+			this.btnAdd.ForeColor = System.Drawing.SystemColors.Control;
+			this.btnAdd.Location = new System.Drawing.Point(81, 64);
+			this.btnAdd.Name = "btnAdd";
+			this.btnAdd.Size = new System.Drawing.Size(209, 26);
+			this.btnAdd.TabIndex = 8;
+			this.btnAdd.Text = "Add";
+			this.btnAdd.UseVisualStyleBackColor = false;
 			// 
 			// frmGoodReceived
 			// 
@@ -484,5 +497,6 @@
 		private System.Windows.Forms.Label label12;
 		private System.Windows.Forms.Label label11;
 		private System.Windows.Forms.Label label10;
+		private System.Windows.Forms.Button btnAdd;
 	}
 }
