@@ -32,10 +32,12 @@
 			this.btnCommit = new System.Windows.Forms.Button();
 			this.DGV_Export_e = new System.Windows.Forms.DataGridView();
 			this.groupBox2 = new System.Windows.Forms.GroupBox();
+			this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
 			this.label9 = new System.Windows.Forms.Label();
 			this.label8 = new System.Windows.Forms.Label();
 			this.TB_ReceiptNo_e = new System.Windows.Forms.TextBox();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
+			this.cb_receiver_e = new System.Windows.Forms.ComboBox();
 			this.label7 = new System.Windows.Forms.Label();
 			this.label6 = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
@@ -46,6 +48,8 @@
 			this.TB_ReceiverName_e = new System.Windows.Forms.TextBox();
 			this.label1 = new System.Windows.Forms.Label();
 			this.groupBox3 = new System.Windows.Forms.GroupBox();
+			this.cb_memo_e = new System.Windows.Forms.ComboBox();
+			this.cb_color_e = new System.Windows.Forms.ComboBox();
 			this.btnAdd = new System.Windows.Forms.Button();
 			this.label4 = new System.Windows.Forms.Label();
 			this.tdks = new System.Windows.Forms.Label();
@@ -53,12 +57,8 @@
 			this.label12 = new System.Windows.Forms.Label();
 			this.label10 = new System.Windows.Forms.Label();
 			this.cb_selectGood_e = new System.Windows.Forms.ComboBox();
-			this.cb_color_e = new System.Windows.Forms.ComboBox();
-			this.cb_memo_e = new System.Windows.Forms.ComboBox();
-			this.cb_receiver_e = new System.Windows.Forms.ComboBox();
-			this.label5 = new System.Windows.Forms.Label();
-			this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
 			this.dataGridView1 = new System.Windows.Forms.DataGridView();
+			this.checkIfNew = new System.Windows.Forms.CheckBox();
 			((System.ComponentModel.ISupportInitialize)(this.DGV_Export_e)).BeginInit();
 			this.groupBox2.SuspendLayout();
 			this.groupBox1.SuspendLayout();
@@ -76,6 +76,7 @@
 			this.btnCancel.TabIndex = 11;
 			this.btnCancel.Text = "Cancel";
 			this.btnCancel.UseVisualStyleBackColor = false;
+			this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
 			// 
 			// btnCommit
 			// 
@@ -87,6 +88,7 @@
 			this.btnCommit.TabIndex = 10;
 			this.btnCommit.Text = "Commit";
 			this.btnCommit.UseVisualStyleBackColor = false;
+			this.btnCommit.Click += new System.EventHandler(this.btnCommit_Click);
 			// 
 			// DGV_Export_e
 			// 
@@ -108,6 +110,13 @@
 			this.groupBox2.Size = new System.Drawing.Size(332, 41);
 			this.groupBox2.TabIndex = 8;
 			this.groupBox2.TabStop = false;
+			// 
+			// dateTimePicker1
+			// 
+			this.dateTimePicker1.Location = new System.Drawing.Point(92, 11);
+			this.dateTimePicker1.Name = "dateTimePicker1";
+			this.dateTimePicker1.Size = new System.Drawing.Size(144, 20);
+			this.dateTimePicker1.TabIndex = 13;
 			// 
 			// label9
 			// 
@@ -140,7 +149,7 @@
 			// groupBox1
 			// 
 			this.groupBox1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-			this.groupBox1.Controls.Add(this.label5);
+			this.groupBox1.Controls.Add(this.checkIfNew);
 			this.groupBox1.Controls.Add(this.cb_receiver_e);
 			this.groupBox1.Controls.Add(this.label7);
 			this.groupBox1.Controls.Add(this.label6);
@@ -155,6 +164,14 @@
 			this.groupBox1.Size = new System.Drawing.Size(612, 100);
 			this.groupBox1.TabIndex = 7;
 			this.groupBox1.TabStop = false;
+			// 
+			// cb_receiver_e
+			// 
+			this.cb_receiver_e.FormattingEnabled = true;
+			this.cb_receiver_e.Location = new System.Drawing.Point(164, 19);
+			this.cb_receiver_e.Name = "cb_receiver_e";
+			this.cb_receiver_e.Size = new System.Drawing.Size(178, 21);
+			this.cb_receiver_e.TabIndex = 13;
 			// 
 			// label7
 			// 
@@ -252,6 +269,24 @@
 			this.groupBox3.TabIndex = 12;
 			this.groupBox3.TabStop = false;
 			// 
+			// cb_memo_e
+			// 
+			this.cb_memo_e.FormattingEnabled = true;
+			this.cb_memo_e.Location = new System.Drawing.Point(254, 35);
+			this.cb_memo_e.Name = "cb_memo_e";
+			this.cb_memo_e.Size = new System.Drawing.Size(88, 21);
+			this.cb_memo_e.TabIndex = 23;
+			this.cb_memo_e.SelectedIndexChanged += new System.EventHandler(this.cb_memo_e_SelectedIndexChanged);
+			// 
+			// cb_color_e
+			// 
+			this.cb_color_e.FormattingEnabled = true;
+			this.cb_color_e.Location = new System.Drawing.Point(106, 35);
+			this.cb_color_e.Name = "cb_color_e";
+			this.cb_color_e.Size = new System.Drawing.Size(89, 21);
+			this.cb_color_e.TabIndex = 22;
+			this.cb_color_e.SelectedIndexChanged += new System.EventHandler(this.cb_color_e_SelectedIndexChanged);
+			// 
 			// btnAdd
 			// 
 			this.btnAdd.BackColor = System.Drawing.Color.RoyalBlue;
@@ -320,49 +355,6 @@
 			this.cb_selectGood_e.TabIndex = 13;
 			this.cb_selectGood_e.SelectedIndexChanged += new System.EventHandler(this.cb_selectGood_e_SelectedIndexChanged);
 			// 
-			// cb_color_e
-			// 
-			this.cb_color_e.FormattingEnabled = true;
-			this.cb_color_e.Location = new System.Drawing.Point(106, 35);
-			this.cb_color_e.Name = "cb_color_e";
-			this.cb_color_e.Size = new System.Drawing.Size(89, 21);
-			this.cb_color_e.TabIndex = 22;
-			this.cb_color_e.SelectedIndexChanged += new System.EventHandler(this.cb_color_e_SelectedIndexChanged);
-			// 
-			// cb_memo_e
-			// 
-			this.cb_memo_e.FormattingEnabled = true;
-			this.cb_memo_e.Location = new System.Drawing.Point(254, 35);
-			this.cb_memo_e.Name = "cb_memo_e";
-			this.cb_memo_e.Size = new System.Drawing.Size(88, 21);
-			this.cb_memo_e.TabIndex = 23;
-			this.cb_memo_e.SelectedIndexChanged += new System.EventHandler(this.cb_memo_e_SelectedIndexChanged);
-			// 
-			// cb_receiver_e
-			// 
-			this.cb_receiver_e.FormattingEnabled = true;
-			this.cb_receiver_e.Location = new System.Drawing.Point(164, 19);
-			this.cb_receiver_e.Name = "cb_receiver_e";
-			this.cb_receiver_e.Size = new System.Drawing.Size(212, 21);
-			this.cb_receiver_e.TabIndex = 13;
-			// 
-			// label5
-			// 
-			this.label5.AutoSize = true;
-			this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label5.Location = new System.Drawing.Point(382, 20);
-			this.label5.Name = "label5";
-			this.label5.Size = new System.Drawing.Size(34, 16);
-			this.label5.TabIndex = 14;
-			this.label5.Text = "New";
-			// 
-			// dateTimePicker1
-			// 
-			this.dateTimePicker1.Location = new System.Drawing.Point(92, 11);
-			this.dateTimePicker1.Name = "dateTimePicker1";
-			this.dateTimePicker1.Size = new System.Drawing.Size(144, 20);
-			this.dateTimePicker1.TabIndex = 13;
-			// 
 			// dataGridView1
 			// 
 			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -370,6 +362,18 @@
 			this.dataGridView1.Name = "dataGridView1";
 			this.dataGridView1.Size = new System.Drawing.Size(612, 61);
 			this.dataGridView1.TabIndex = 13;
+			// 
+			// checkIfNew
+			// 
+			this.checkIfNew.AutoSize = true;
+			this.checkIfNew.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.checkIfNew.Location = new System.Drawing.Point(359, 19);
+			this.checkIfNew.Name = "checkIfNew";
+			this.checkIfNew.Size = new System.Drawing.Size(53, 20);
+			this.checkIfNew.TabIndex = 15;
+			this.checkIfNew.Text = "New";
+			this.checkIfNew.UseVisualStyleBackColor = true;
+			this.checkIfNew.CheckedChanged += new System.EventHandler(this.checkIfNew_CheckedChanged);
 			// 
 			// frmGoodDeliveryNote
 			// 
@@ -429,9 +433,9 @@
 		private System.Windows.Forms.Button btnAdd;
 		private System.Windows.Forms.ComboBox cb_memo_e;
 		private System.Windows.Forms.ComboBox cb_color_e;
-		private System.Windows.Forms.Label label5;
 		private System.Windows.Forms.ComboBox cb_receiver_e;
 		private System.Windows.Forms.DateTimePicker dateTimePicker1;
 		private System.Windows.Forms.DataGridView dataGridView1;
+		private System.Windows.Forms.CheckBox checkIfNew;
 	}
 }
