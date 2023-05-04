@@ -37,6 +37,7 @@
 			this.label8 = new System.Windows.Forms.Label();
 			this.TB_ReceiptNo_e = new System.Windows.Forms.TextBox();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
+			this.checkIfNew = new System.Windows.Forms.CheckBox();
 			this.cb_receiver_e = new System.Windows.Forms.ComboBox();
 			this.label7 = new System.Windows.Forms.Label();
 			this.label6 = new System.Windows.Forms.Label();
@@ -58,7 +59,6 @@
 			this.label10 = new System.Windows.Forms.Label();
 			this.cb_selectGood_e = new System.Windows.Forms.ComboBox();
 			this.dataGridView1 = new System.Windows.Forms.DataGridView();
-			this.checkIfNew = new System.Windows.Forms.CheckBox();
 			((System.ComponentModel.ISupportInitialize)(this.DGV_Export_e)).BeginInit();
 			this.groupBox2.SuspendLayout();
 			this.groupBox1.SuspendLayout();
@@ -164,6 +164,18 @@
 			this.groupBox1.Size = new System.Drawing.Size(612, 100);
 			this.groupBox1.TabIndex = 7;
 			this.groupBox1.TabStop = false;
+			// 
+			// checkIfNew
+			// 
+			this.checkIfNew.AutoSize = true;
+			this.checkIfNew.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.checkIfNew.Location = new System.Drawing.Point(359, 19);
+			this.checkIfNew.Name = "checkIfNew";
+			this.checkIfNew.Size = new System.Drawing.Size(53, 20);
+			this.checkIfNew.TabIndex = 15;
+			this.checkIfNew.Text = "New";
+			this.checkIfNew.UseVisualStyleBackColor = true;
+			this.checkIfNew.CheckedChanged += new System.EventHandler(this.checkIfNew_CheckedChanged);
 			// 
 			// cb_receiver_e
 			// 
@@ -325,6 +337,8 @@
 			this.tb_ProductQuantity_e.Name = "tb_ProductQuantity_e";
 			this.tb_ProductQuantity_e.Size = new System.Drawing.Size(39, 20);
 			this.tb_ProductQuantity_e.TabIndex = 17;
+			this.tb_ProductQuantity_e.TextChanged += new System.EventHandler(this.tb_ProductQuantity_e_TextChanged);
+			this.tb_ProductQuantity_e.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TB_Quant_KP);
 			// 
 			// label12
 			// 
@@ -362,18 +376,6 @@
 			this.dataGridView1.Name = "dataGridView1";
 			this.dataGridView1.Size = new System.Drawing.Size(612, 61);
 			this.dataGridView1.TabIndex = 13;
-			// 
-			// checkIfNew
-			// 
-			this.checkIfNew.AutoSize = true;
-			this.checkIfNew.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.checkIfNew.Location = new System.Drawing.Point(359, 19);
-			this.checkIfNew.Name = "checkIfNew";
-			this.checkIfNew.Size = new System.Drawing.Size(53, 20);
-			this.checkIfNew.TabIndex = 15;
-			this.checkIfNew.Text = "New";
-			this.checkIfNew.UseVisualStyleBackColor = true;
-			this.checkIfNew.CheckedChanged += new System.EventHandler(this.checkIfNew_CheckedChanged);
 			// 
 			// frmGoodDeliveryNote
 			// 

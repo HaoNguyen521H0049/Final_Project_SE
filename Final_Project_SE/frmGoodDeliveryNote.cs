@@ -471,5 +471,49 @@ namespace Final_Project_SE
 				MessageBox.Show("Cannot commit empty data! please fill in!", "Insufficient data", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 		}
+
+		private async void tb_ProductQuantity_e_TextChanged(object sender, EventArgs e)
+		{
+			delaying.Cancel();
+			delaying = new CancellationTokenSource();
+
+			try
+			{
+				await Task.Delay(DelayTime, delaying.Token);
+				SqlConnection conn = new SqlConnection(Program.strConn);
+				conn.Open();
+				SqlCommand cmd = new SqlCommand("SELECT PQuantity FROM Product WHERE PMemory ='" + cb_memo_e.SelectedValue.ToString() + "' AND PColor ='" + cb_color_e.SelectedValue.ToString() + "' AND PName ='" + cb_selectGood_e.SelectedValue.ToString() + "'", conn);
+				SqlDataReader sr = cmd.ExecuteReader();
+				while (sr.Read())
+				{
+					int quanti = int.Parse(sr.GetValue(0).ToString());
+					int inputValue = int.Parse(tb_ProductQuantity_e.ToString());
+					if (inputValue>quanti || inputValue<0)
+					{
+						MessageBox.Show("the value you enter is " + inputValue + " Which is greater than current quantitiy: " + quanti, "Input is invalid", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+						string toValid = "" + quanti;
+						tb_ProductQuantity_e.Text = toValid;
+						tb_ProductQuantity_e.Focus();
+					}
+					else 
+					{
+						
+					}
+				}
+				conn.Close();
+			}
+			catch (TaskCanceledException)
+			{
+				
+			}
+		}
+
+		private void TB_Quant_KP(object sender, KeyPressEventArgs e)
+		{
+			if (!char.IsDigit(e.KeyChar))
+			{
+				e.Handled = true;
+			}
+		}
 	}
 }
