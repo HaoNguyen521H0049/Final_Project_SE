@@ -30,10 +30,10 @@
 		{
 			this.components = new System.ComponentModel.Container();
 			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-			this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.importToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.exportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.menuStrip1.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -46,11 +46,6 @@
 			this.menuStrip1.Size = new System.Drawing.Size(1222, 24);
 			this.menuStrip1.TabIndex = 0;
 			this.menuStrip1.Text = "menuStrip1";
-			// 
-			// contextMenuStrip1
-			// 
-			this.contextMenuStrip1.Name = "contextMenuStrip1";
-			this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
 			// 
 			// fileToolStripMenuItem
 			// 
@@ -75,6 +70,11 @@
 			this.exportToolStripMenuItem.Text = "Export";
 			this.exportToolStripMenuItem.Click += new System.EventHandler(this.exportToolStripMenuItem_Click);
 			// 
+			// contextMenuStrip1
+			// 
+			this.contextMenuStrip1.Name = "contextMenuStrip1";
+			this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+			// 
 			// frmMainControlPage
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -85,6 +85,7 @@
 			this.MainMenuStrip = this.menuStrip1;
 			this.Name = "frmMainControlPage";
 			this.Text = "frmMainControlPage";
+			this.Load += new System.EventHandler(this.frmMainControlPage_Load);
 			this.menuStrip1.ResumeLayout(false);
 			this.menuStrip1.PerformLayout();
 			this.ResumeLayout(false);

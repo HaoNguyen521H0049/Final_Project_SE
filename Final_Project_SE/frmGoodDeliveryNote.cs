@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.Threading;
+using System.Security.Cryptography;
 
 namespace Final_Project_SE
 {
@@ -215,6 +216,14 @@ namespace Final_Project_SE
 			{
 				if (!isFunctionExecuted)
 				{
+					DataTable schema = conn.GetSchema("Tables");
+					bool exists = schema.Rows.OfType<DataRow>().Any(row => row["TABLE_NAME"].ToString() == "temp_receipt_info");
+					if (exists)
+					{
+						SqlCommand deleteTable = new SqlCommand("Drop Table temp_receipt_info", conn);
+						deleteTable.ExecuteNonQuery();
+					}
+
 					SqlCommand createTempReceipt = new SqlCommand("CREATE TABLE temp_receipt_info (dateCreated date, exportReceiptNo int, ReceiverName nvarchar(50), issuingReason nvarchar(50), exportFactory nvarchar(50), FactoryLocation nvarchar(50));", conn);
 					createTempReceipt.ExecuteNonQuery();
 					SqlCommand cmd2 = new SqlCommand("INSERT INTO temp_receipt_info (dateCreated, exportReceiptNo, ReceiverName, issuingReason, exportFactory, FactoryLocation) " + "VALUES (@dateCreated, @exportReceiptNo, @ReceiverName, @issuingReason, @exportFactory, @FactoryLocation)", conn);
@@ -226,7 +235,7 @@ namespace Final_Project_SE
 					}
 					else
 					{
-						cmd2.Parameters.AddWithValue("@ReceiverName", cb_receiver_e.SelectedIndex.ToString());
+						cmd2.Parameters.AddWithValue("@ReceiverName", cb_receiver_e.SelectedValue.ToString());
 					}
 					cmd2.Parameters.AddWithValue("@issuingReason", TB_Reason_e.Text);
 					cmd2.Parameters.AddWithValue("@exportFactory", TB_TargetStockName_e.Text);
@@ -234,11 +243,22 @@ namespace Final_Project_SE
 					cmd2.ExecuteNonQuery();
 					isFunctionExecuted = true;
 					isTempTableExist = true;
+
+					DataTable schemas = conn.GetSchema("Tables");
+					bool exist = schemas.Rows.OfType<DataRow>().Any(row => row["TABLE_NAME"].ToString() == "temp_Receipt_data");
+					if (exist)
+					{
+						SqlCommand deleteTables = new SqlCommand("Drop Table temp_Receipt_data", conn);
+						deleteTables.ExecuteNonQuery();
+					}
+
 					SqlCommand createTempReceiptData = new SqlCommand("CREATE TABLE temp_Receipt_data (OrderID int NOT NULL,PID nvarchar(20) NULL,Quantity int NULL,PPrice int);", conn);
 					createTempReceiptData.ExecuteNonQuery();
 				}
 
-				SqlCommand cmd3 = new SqlCommand("INSERT INTO temp_Receipt_data (OrderID, PID, Quantity, PPrice) values (@NO, @PID, @Quantity, @PPrice)", conn);
+				
+
+				SqlCommand cmd3 = new SqlCommand("MERGE temp_Receipt_data AS target\r\nUSING (SELECT @NO AS OrderID, @PID AS PID, @Quantity AS Quantity, @PPrice AS PPrice) AS source\r\nON (target.PID = source.PID)\r\nWHEN MATCHED THEN\r\n    UPDATE SET target.Quantity = target.Quantity + source.Quantity\r\nWHEN NOT MATCHED THEN\r\n    INSERT (OrderID, PID, Quantity, PPrice)\r\n    VALUES (source.OrderID, source.PID, source.Quantity, source.PPrice);", conn);
 				cmd3.Parameters.Add(new SqlParameter("NO", int.Parse(TB_ReceiptNo_e.Text)));
 				cmd3.Parameters.Add(new SqlParameter("PID", PID));
 				cmd3.Parameters.Add(new SqlParameter("Quantity", int.Parse(tb_ProductQuantity_e.Text)));
@@ -261,7 +281,7 @@ namespace Final_Project_SE
 		{
 			SqlConnection conn = new SqlConnection(Program.strConn);
 			conn.Open();
-			SqlCommand cmd = new SqlCommand("SELECT Product.PName, Receipt_details.Quantity, Product.PPrice FROM Product INNER JOIN temp_Receipt_data ON Product.PID = temp_Receipt_data.PID WHERE temp_Receipt_data.OrderID = " + int.Parse(TB_ReceiptNo_e.Text) +";", conn);
+			SqlCommand cmd = new SqlCommand("SELECT Product.PID, Product.PName, temp_Receipt_data.Quantity, Product.PPrice, temp_Receipt_data.Quantity * Product.PPrice as TotalPrice FROM Product INNER JOIN temp_Receipt_data ON Product.PID = temp_Receipt_data.PID WHERE temp_Receipt_data.OrderID = " + int.Parse(TB_ReceiptNo_e.Text) +";", conn);
 			SqlDataAdapter adapter = new SqlDataAdapter(cmd);
 			DataTable dt = new DataTable();
 			adapter.Fill(dt);
@@ -275,6 +295,11 @@ namespace Final_Project_SE
 				
 			}
 			adapter.Dispose();
+			DGV_Export_e.Columns[0].ReadOnly = true; 
+			DGV_Export_e.Columns[1].ReadOnly = true;
+			DGV_Export_e.Columns[2].ReadOnly = false;
+			DGV_Export_e.Columns[3].ReadOnly = true; 
+			DGV_Export_e.Columns[4].ReadOnly = true; 
 
 			SqlCommand command = new SqlCommand("SELECT SUM(Quantity * PPrice) AS TotalMoney FROM temp_Receipt_data  where OrderId = @OID GROUP BY OrderID", conn);
 			command.Parameters.Add(new SqlParameter("OID", int.Parse(TB_ReceiptNo_e.Text)));
@@ -426,6 +451,8 @@ namespace Final_Project_SE
 				conn.Open();
 				SqlCommand cmd = new SqlCommand("DROP TABLE temp_receipt_info;DROP TABLE temp_Receipt_data;", conn);
 				cmd.ExecuteNonQuery();
+				btnCancel.Enabled= false;
+				this.Close();
 			}
 			else
 			{
@@ -456,10 +483,16 @@ namespace Final_Project_SE
 
 				if (success == 2) 
 				{
-					MessageBox.Show("Successfully","finished");
+					
 					SqlCommand cmd = new SqlCommand("DROP TABLE temp_receipt_info;DROP TABLE temp_Receipt_data;", conn);
+					SqlCommand cmdMinus = new SqlCommand("MERGE Product AS p\r\nUSING temp_Receipt_data AS trd\r\nON p.PID = trd.PID\r\nWHEN MATCHED THEN\r\n    UPDATE SET p.PQuantity = p.PQuantity - trd.Quantity;", conn);
+
+					cmdMinus.ExecuteNonQuery();
 					cmd.ExecuteNonQuery();
+					MessageBox.Show("Successfully", "finished");
 					this.Close();
+					frmGoodDeliveryNote f = new frmGoodDeliveryNote();
+					f.Show();
 				}
 				else
 				{
@@ -487,13 +520,12 @@ namespace Final_Project_SE
 				while (sr.Read())
 				{
 					int quanti = int.Parse(sr.GetValue(0).ToString());
-					int inputValue = int.Parse(tb_ProductQuantity_e.ToString());
+					int inputValue = int.Parse(tb_ProductQuantity_e.Text);
 					if (inputValue>quanti || inputValue<0)
 					{
 						MessageBox.Show("the value you enter is " + inputValue + " Which is greater than current quantitiy: " + quanti, "Input is invalid", MessageBoxButtons.OK, MessageBoxIcon.Stop);
 						string toValid = "" + quanti;
 						tb_ProductQuantity_e.Text = toValid;
-						tb_ProductQuantity_e.Focus();
 					}
 					else 
 					{
@@ -510,9 +542,79 @@ namespace Final_Project_SE
 
 		private void TB_Quant_KP(object sender, KeyPressEventArgs e)
 		{
-			if (!char.IsDigit(e.KeyChar))
+			if (!char.IsDigit(e.KeyChar) && e.KeyChar!=8)
 			{
 				e.Handled = true;
+			}
+			if (tb_ProductQuantity_e.Text=="")
+			{
+				tb_ProductQuantity_e.Text = "0";
+			}
+		}
+
+		private void btnDelRow_Click(object sender, EventArgs e)
+		{
+			if (DGV_Export_e.SelectedRows.Count > 0 && !DGV_Export_e.IsCurrentRowDirty) 
+			{
+				DialogResult r = MessageBox.Show("You want to delete this row?", "Delete Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+				if (r == DialogResult.Yes)
+				{
+					DataGridViewRow selectedRow = DGV_Export_e.SelectedRows[0];
+					string pid = selectedRow.Cells["PID"].Value.ToString();
+					int pquantity = Convert.ToInt32(selectedRow.Cells["Quantity"].Value);
+					int pprice = Convert.ToInt32(selectedRow.Cells["PPrice"].Value);
+					SqlConnection conn = new SqlConnection(Program.strConn);
+					conn.Open();
+					SqlCommand deleteRow = new SqlCommand("DELETE FROM temp_Receipt_data WHERE PID = '" + pid + "' AND Quantity = " + pquantity + " AND PPrice = " + pprice, conn);
+					deleteRow.ExecuteNonQuery();
+					conn.Close();
+					showGrid();
+				}
+			}
+			else
+			{
+				MessageBox.Show("Please select a row to delete","Error");
+			}
+		}
+
+		private async void DGV_Quan_Change(object sender, DataGridViewCellEventArgs e)
+		{
+			
+			delaying.Cancel();
+			delaying = new CancellationTokenSource();
+
+			try
+			{
+				await Task.Delay(DelayTime, delaying.Token);
+
+
+				if (e.RowIndex >= 0 && e.ColumnIndex == DGV_Export_e.Columns["Quantity"].Index)
+				{
+					DataGridViewRow row = DGV_Export_e.Rows[e.RowIndex];
+					string pid = row.Cells["PID"].Value.ToString();
+					int newQuantity = Convert.ToInt32(row.Cells["Quantity"].Value);
+
+					bool isNum = int.TryParse(row.Cells["Quantity"].Value.ToString(), out int output);
+
+					if (isNum)
+					{
+						SqlConnection conn = new SqlConnection(Program.strConn);
+						conn.Open();
+						SqlCommand changeQuan = new SqlCommand("UPDATE temp_Receipt_data SET Quantity = " + newQuantity + " WHERE PID = '" + pid +"'", conn);
+						changeQuan.ExecuteNonQuery();
+						showGrid();
+					}
+					else
+					{
+						MessageBox.Show("Please enter a number, not non-numerical", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					}
+				}
+				
+				
+			}
+			catch (TaskCanceledException)
+			{
+
 			}
 		}
 	}

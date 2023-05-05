@@ -59,6 +59,7 @@
 			this.label10 = new System.Windows.Forms.Label();
 			this.cb_selectGood_e = new System.Windows.Forms.ComboBox();
 			this.dataGridView1 = new System.Windows.Forms.DataGridView();
+			this.btnDelRow = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.DGV_Export_e)).BeginInit();
 			this.groupBox2.SuspendLayout();
 			this.groupBox1.SuspendLayout();
@@ -94,9 +95,12 @@
 			// 
 			this.DGV_Export_e.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.DGV_Export_e.Location = new System.Drawing.Point(12, 280);
+			this.DGV_Export_e.MultiSelect = false;
 			this.DGV_Export_e.Name = "DGV_Export_e";
-			this.DGV_Export_e.Size = new System.Drawing.Size(612, 166);
+			this.DGV_Export_e.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+			this.DGV_Export_e.Size = new System.Drawing.Size(612, 150);
 			this.DGV_Export_e.TabIndex = 9;
+			this.DGV_Export_e.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV_Quan_Change);
 			// 
 			// groupBox2
 			// 
@@ -305,7 +309,7 @@
 			this.btnAdd.ForeColor = System.Drawing.SystemColors.Control;
 			this.btnAdd.Location = new System.Drawing.Point(457, 11);
 			this.btnAdd.Name = "btnAdd";
-			this.btnAdd.Size = new System.Drawing.Size(149, 44);
+			this.btnAdd.Size = new System.Drawing.Size(149, 45);
 			this.btnAdd.TabIndex = 13;
 			this.btnAdd.Text = "Add";
 			this.btnAdd.UseVisualStyleBackColor = false;
@@ -372,16 +376,30 @@
 			// dataGridView1
 			// 
 			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dataGridView1.Location = new System.Drawing.Point(12, 452);
+			this.dataGridView1.Location = new System.Drawing.Point(12, 436);
+			this.dataGridView1.MultiSelect = false;
 			this.dataGridView1.Name = "dataGridView1";
-			this.dataGridView1.Size = new System.Drawing.Size(612, 61);
+			this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+			this.dataGridView1.Size = new System.Drawing.Size(612, 77);
 			this.dataGridView1.TabIndex = 13;
+			// 
+			// btnDelRow
+			// 
+			this.btnDelRow.BackColor = System.Drawing.Color.IndianRed;
+			this.btnDelRow.Location = new System.Drawing.Point(12, 519);
+			this.btnDelRow.Name = "btnDelRow";
+			this.btnDelRow.Size = new System.Drawing.Size(97, 57);
+			this.btnDelRow.TabIndex = 14;
+			this.btnDelRow.Text = "Delete Row";
+			this.btnDelRow.UseVisualStyleBackColor = false;
+			this.btnDelRow.Click += new System.EventHandler(this.btnDelRow_Click);
 			// 
 			// frmGoodDeliveryNote
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(641, 584);
+			this.Controls.Add(this.btnDelRow);
 			this.Controls.Add(this.dataGridView1);
 			this.Controls.Add(this.groupBox3);
 			this.Controls.Add(this.btnCancel);
@@ -439,5 +457,6 @@
 		private System.Windows.Forms.DateTimePicker dateTimePicker1;
 		private System.Windows.Forms.DataGridView dataGridView1;
 		private System.Windows.Forms.CheckBox checkIfNew;
+		private System.Windows.Forms.Button btnDelRow;
 	}
 }

@@ -26,7 +26,13 @@ namespace Final_Project_SE
 		private void exportToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			frmGoodDeliveryNote f = new frmGoodDeliveryNote();
+			f.MdiParent = this;
 			f.Show();
+		}
+
+		private void frmMainControlPage_Load(object sender, EventArgs e)
+		{
+			this.WindowState = FormWindowState.Maximized;
 		}
 	}
 }
