@@ -14,6 +14,7 @@ namespace Final_Project_SE
 		/// The main entry point for the application.
 		/// </summary>
 		public static string strConn="";
+		public static string currentLoggin = "";
 		[STAThread]
 		static void Main()
 		{

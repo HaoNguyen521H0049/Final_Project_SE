@@ -28,6 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGoodDeliveryNote));
 			this.btnCancel = new System.Windows.Forms.Button();
 			this.btnCommit = new System.Windows.Forms.Button();
 			this.DGV_Export_e = new System.Windows.Forms.DataGridView();
@@ -408,6 +409,7 @@
 			this.Controls.Add(this.groupBox2);
 			this.Controls.Add(this.groupBox1);
 			this.Controls.Add(this.label1);
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "frmGoodDeliveryNote";
 			this.Text = "frmGoodDeliveryNote";
 			this.Load += new System.EventHandler(this.frmGoodDeliveryNote_Load);

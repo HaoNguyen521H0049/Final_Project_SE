@@ -26,7 +26,7 @@ namespace Final_Project_SE
 			{
 				SqlConnection conn = new SqlConnection(Program.strConn);
 				conn.Open();
-				SqlCommand cmd = new SqlCommand("SELECT * FROM Login_Management",conn);
+				SqlCommand cmd = new SqlCommand("SELECT * FROM Login_Management WHERE username ='"+ tb_un.Text + "'",conn);
 				SqlDataAdapter adapter = new SqlDataAdapter(cmd);
 				DataTable dt = new DataTable();
 				
@@ -36,13 +36,21 @@ namespace Final_Project_SE
 				{
 					for (int i =0;i<dt.Rows.Count;i++)
 					{
-						if (tb_un.Text == dt.Rows[i][0].ToString() || tb_pw.Text == dt.Rows[i][1].ToString())
+						if (tb_un.Text == dt.Rows[i][0].ToString() && tb_pw.Text == dt.Rows[i][1].ToString())
 						{
-							conn.Close();
-							Thread f = new Thread(btnLogin);
-							f.SetApartmentState(ApartmentState.STA);
-							f.Start();
-							this.Close();
+							if (dt.Rows[i][2].ToString() != "admin")
+							{
+								MessageBox.Show("You cannot logging in with agent account, please try again", "Unauthorized Role", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+							}
+							else
+							{
+								Program.currentLoggin=tb_un.Text;
+								conn.Close();
+								Thread f = new Thread(btnLogin);
+								f.SetApartmentState(ApartmentState.STA);
+								f.Start();
+								this.Close();
+							}
 						}
 						else
 						{

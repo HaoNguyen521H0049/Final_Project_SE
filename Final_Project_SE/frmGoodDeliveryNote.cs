@@ -108,9 +108,6 @@ namespace Final_Project_SE
 			{
 				MessageBox.Show("No Data");
 			}
-
-			
-
 		}
 
 		private void cb_memo_e_SelectedIndexChanged(object sender, EventArgs e)
@@ -224,9 +221,9 @@ namespace Final_Project_SE
 						deleteTable.ExecuteNonQuery();
 					}
 
-					SqlCommand createTempReceipt = new SqlCommand("CREATE TABLE temp_receipt_info (dateCreated date, exportReceiptNo int, ReceiverName nvarchar(50), issuingReason nvarchar(50), exportFactory nvarchar(50), FactoryLocation nvarchar(50));", conn);
+					SqlCommand createTempReceipt = new SqlCommand("CREATE TABLE temp_receipt_info (dateCreated date, exportReceiptNo int, ReceiverName nvarchar(50), issuingReason nvarchar(50), exportFactory nvarchar(50), FactoryLocation nvarchar(50), IsPaid BIT);", conn);
 					createTempReceipt.ExecuteNonQuery();
-					SqlCommand cmd2 = new SqlCommand("INSERT INTO temp_receipt_info (dateCreated, exportReceiptNo, ReceiverName, issuingReason, exportFactory, FactoryLocation) " + "VALUES (@dateCreated, @exportReceiptNo, @ReceiverName, @issuingReason, @exportFactory, @FactoryLocation)", conn);
+					SqlCommand cmd2 = new SqlCommand("INSERT INTO temp_receipt_info (dateCreated, exportReceiptNo, ReceiverName, issuingReason, exportFactory, FactoryLocation, IsPaid) " + "VALUES (@dateCreated, @exportReceiptNo, @ReceiverName, @issuingReason, @exportFactory, @FactoryLocation, 0)", conn);
 					cmd2.Parameters.AddWithValue("@dateCreated", dateTimePicker1.Value);
 					cmd2.Parameters.AddWithValue("@exportReceiptNo", TB_ReceiptNo_e.Text);
 					if (checkIfNew.Checked)

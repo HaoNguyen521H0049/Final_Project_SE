@@ -5,7 +5,7 @@ VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Final_Project_SE", "Final_Project_SE\Final_Project_SE.csproj", "{4FC95433-CFA6-4E7C-B192-1F8D2922D680}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Final_Project_SE_Webform", "Final_Project_SE_Webform\Final_Project_SE_Webform.csproj", "{45A2BE81-755F-4605-8758-7DCE4EFE3DB8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Final_Project_SE_WebASPNET", "Final_Project_SE_WebASPNET\Final_Project_SE_WebASPNET.csproj", "{275A9FDD-E339-4ACC-8490-63276B024C48}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{4FC95433-CFA6-4E7C-B192-1F8D2922D680}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4FC95433-CFA6-4E7C-B192-1F8D2922D680}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4FC95433-CFA6-4E7C-B192-1F8D2922D680}.Release|Any CPU.Build.0 = Release|Any CPU
-		{45A2BE81-755F-4605-8758-7DCE4EFE3DB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{45A2BE81-755F-4605-8758-7DCE4EFE3DB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{45A2BE81-755F-4605-8758-7DCE4EFE3DB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{45A2BE81-755F-4605-8758-7DCE4EFE3DB8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{275A9FDD-E339-4ACC-8490-63276B024C48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{275A9FDD-E339-4ACC-8490-63276B024C48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{275A9FDD-E339-4ACC-8490-63276B024C48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{275A9FDD-E339-4ACC-8490-63276B024C48}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -20,6 +20,7 @@ namespace Final_Project_SE
 		private void importToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			frmGoodReceived f = new frmGoodReceived();
+			f.MdiParent = this;
 			f.Show();
 		}
 
