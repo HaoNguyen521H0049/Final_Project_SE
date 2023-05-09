@@ -14,9 +14,9 @@ using static System.Net.WebRequestMethods;
 
 namespace Final_Project_SE
 {
-	public partial class frmGoodReceived : Form
+	public partial class FrmGoodReceived : Form
 	{
-		public frmGoodReceived()
+		public FrmGoodReceived()
 		{
 			InitializeComponent();
 		}
@@ -479,7 +479,7 @@ namespace Final_Project_SE
 				}
 				if (tb_ProductQuantity_i.Text == "")
 				{
-					tb_ProductQuantity_i.Text = "0";
+					
 				}
 			
 	
@@ -504,7 +504,7 @@ namespace Final_Project_SE
 			}
 			if (tb_Price_i.Text == "")
 			{
-				tb_Price_i.Text = "0";
+				
 			}
 		}
 
@@ -795,7 +795,7 @@ namespace Final_Project_SE
 					cmdz.ExecuteNonQuery();
 					MessageBox.Show("Successfully", "finished");
 					this.Close();
-					frmGoodDeliveryNote f = new frmGoodDeliveryNote();
+					FrmGoodDeliveryNote f = new FrmGoodDeliveryNote();
 					f.Show();
 				}
 				else

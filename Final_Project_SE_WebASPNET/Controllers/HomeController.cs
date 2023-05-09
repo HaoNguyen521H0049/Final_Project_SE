@@ -10,6 +10,14 @@ namespace Final_Project_SE_WebASPNET.Controllers
 	{
 		public ActionResult Index()
 		{
+			if (User.Identity.IsAuthenticated)
+			{
+				ViewBag.Message = "Welcome " + User.Identity.Name;
+			}
+			else
+			{
+				ViewBag.Message = "You are not logged in";
+			}
 			return View();
 		}
 
@@ -26,5 +34,7 @@ namespace Final_Project_SE_WebASPNET.Controllers
 
 			return View();
 		}
+
+		
 	}
 }

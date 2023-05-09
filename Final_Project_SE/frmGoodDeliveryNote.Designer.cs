@@ -1,6 +1,6 @@
 ﻿namespace Final_Project_SE
 {
-	partial class frmGoodDeliveryNote
+	partial class FrmGoodDeliveryNote
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -28,7 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGoodDeliveryNote));
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmGoodDeliveryNote));
 			this.btnCancel = new System.Windows.Forms.Button();
 			this.btnCommit = new System.Windows.Forms.Button();
 			this.DGV_Export_e = new System.Windows.Forms.DataGridView();

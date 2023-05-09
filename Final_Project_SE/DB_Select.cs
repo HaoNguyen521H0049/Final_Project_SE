@@ -39,17 +39,12 @@ namespace Final_Project_SE
 
 		private void threadDB(object arg)
 		{
-			Application.Run(new frmLogin());
+			Application.Run(new FrmLogin());
 		}
 
 		private void button3_Click(object sender, EventArgs e)
 		{
 			Application.Exit();
-		}
-
-		private void btnConfirm_Click(object sender, EventArgs e)
-		{
-
 		}
 	}
 }

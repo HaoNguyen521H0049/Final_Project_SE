@@ -1,6 +1,6 @@
 ﻿namespace Final_Project_SE
 {
-	partial class frmGoodReceived
+	partial class FrmGoodReceived
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -28,7 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGoodReceived));
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmGoodReceived));
 			this.label1 = new System.Windows.Forms.Label();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
 			this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();

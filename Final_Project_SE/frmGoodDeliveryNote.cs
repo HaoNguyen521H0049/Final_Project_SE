@@ -14,9 +14,9 @@ using System.Security.Cryptography;
 
 namespace Final_Project_SE
 {
-	public partial class frmGoodDeliveryNote : Form
+	public partial class FrmGoodDeliveryNote : Form
 	{
-		public frmGoodDeliveryNote()
+		public FrmGoodDeliveryNote()
 		{
 			InitializeComponent();
 		}
@@ -488,7 +488,7 @@ namespace Final_Project_SE
 					cmd.ExecuteNonQuery();
 					MessageBox.Show("Successfully", "finished");
 					this.Close();
-					frmGoodDeliveryNote f = new frmGoodDeliveryNote();
+					FrmGoodDeliveryNote f = new FrmGoodDeliveryNote();
 					f.Show();
 				}
 				else

@@ -16,8 +16,8 @@ namespace Final_Project_SE_WebASPNET
 			routes.MapRoute(
 				name: "Default",
 				url: "{controller}/{action}/{id}",
-				defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
-			);
+				defaults: new { controller = "Agent", action = "Login", id = UrlParameter.Optional }
+			);	
 		}
 	}
 }

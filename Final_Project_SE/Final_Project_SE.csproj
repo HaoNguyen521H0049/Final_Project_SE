@@ -56,46 +56,100 @@
     <Compile Include="DB_Select.Designer.cs">
       <DependentUpon>DB_Select.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmLogin.cs">
+    <Compile Include="FrmAddAgent.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmLogin.Designer.cs">
-      <DependentUpon>frmLogin.cs</DependentUpon>
+    <Compile Include="FrmAddAgent.Designer.cs">
+      <DependentUpon>FrmAddAgent.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmGoodDeliveryNote.cs">
+    <Compile Include="FrmAgentManagement.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmGoodDeliveryNote.Designer.cs">
-      <DependentUpon>frmGoodDeliveryNote.cs</DependentUpon>
+    <Compile Include="FrmAgentManagement.Designer.cs">
+      <DependentUpon>FrmAgentManagement.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmGoodReceived.cs">
+    <Compile Include="FrmIncomeOutcomeRep.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmGoodReceived.Designer.cs">
-      <DependentUpon>frmGoodReceived.cs</DependentUpon>
+    <Compile Include="FrmIncomeOutcomeRep.Designer.cs">
+      <DependentUpon>FrmIncomeOutcomeRep.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmMainControlPage.cs">
+    <Compile Include="FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmMainControlPage.Designer.cs">
-      <DependentUpon>frmMainControlPage.cs</DependentUpon>
+    <Compile Include="FrmLogin.Designer.cs">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmGoodDeliveryNote.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmGoodDeliveryNote.Designer.cs">
+      <DependentUpon>FrmGoodDeliveryNote.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmGoodReceived.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmGoodReceived.Designer.cs">
+      <DependentUpon>FrmGoodReceived.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMainControlPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMainControlPage.Designer.cs">
+      <DependentUpon>FrmMainControlPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMonthlySell.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMonthlySell.Designer.cs">
+      <DependentUpon>FrmMonthlySell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmProductReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmProductReport.Designer.cs">
+      <DependentUpon>FrmProductReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmUpdateStatus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmUpdateStatus.Designer.cs">
+      <DependentUpon>FrmUpdateStatus.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="DB_Select.resx">
       <DependentUpon>DB_Select.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmGoodDeliveryNote.resx">
-      <DependentUpon>frmGoodDeliveryNote.cs</DependentUpon>
+    <EmbeddedResource Include="FrmAddAgent.resx">
+      <DependentUpon>FrmAddAgent.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmGoodReceived.resx">
-      <DependentUpon>frmGoodReceived.cs</DependentUpon>
+    <EmbeddedResource Include="FrmAgentManagement.resx">
+      <DependentUpon>FrmAgentManagement.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmLogin.resx">
-      <DependentUpon>frmLogin.cs</DependentUpon>
+    <EmbeddedResource Include="FrmGoodDeliveryNote.resx">
+      <DependentUpon>FrmGoodDeliveryNote.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmMainControlPage.resx">
-      <DependentUpon>frmMainControlPage.cs</DependentUpon>
+    <EmbeddedResource Include="FrmGoodReceived.resx">
+      <DependentUpon>FrmGoodReceived.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmIncomeOutcomeRep.resx">
+      <DependentUpon>FrmIncomeOutcomeRep.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLogin.resx">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMainControlPage.resx">
+      <DependentUpon>FrmMainControlPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMonthlySell.resx">
+      <DependentUpon>FrmMonthlySell.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmProductReport.resx">
+      <DependentUpon>FrmProductReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmUpdateStatus.resx">
+      <DependentUpon>FrmUpdateStatus.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

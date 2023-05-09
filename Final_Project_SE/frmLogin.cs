@@ -13,9 +13,9 @@ using System.Data.SqlClient;
 namespace Final_Project_SE
 {
 	
-	public partial class frmLogin : Form
+	public partial class FrmLogin : Form
 	{
-		public frmLogin()
+		public FrmLogin()
 		{
 			InitializeComponent();
 		}
@@ -72,7 +72,7 @@ namespace Final_Project_SE
 
 		private void btnLogin(object arg)
 		{
-			Application.Run(new frmMainControlPage());
+			Application.Run(new FrmMainControlPage());
 		}
 
 		private void button2_Click(object sender, EventArgs e)
