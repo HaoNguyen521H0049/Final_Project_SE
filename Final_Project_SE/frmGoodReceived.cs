@@ -808,5 +808,47 @@ namespace Final_Project_SE
 				MessageBox.Show("Cannot commit empty data! please fill in!", "Insufficient data", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 		}
+
+		private async void CVC_changed(object sender, DataGridViewCellEventArgs e)
+		{
+			delaying.Cancel();
+			delaying = new CancellationTokenSource();
+
+			try
+			{
+				await Task.Delay(DelayTime, delaying.Token);
+
+
+				if (e.RowIndex >= 0 && e.ColumnIndex == DGV_Receipt_i.Columns["Quantity"].Index)
+				{
+					DataGridViewRow row = DGV_Receipt_i.Rows[e.RowIndex];
+					string pid = row.Cells["PID"].Value.ToString();
+					int newQuantity = Convert.ToInt32(row.Cells["Quantity"].Value);
+
+					bool isNum = int.TryParse(row.Cells["Quantity"].Value.ToString(), out int output);
+
+					if (isNum)
+					{
+						SqlConnection conn = new SqlConnection(Program.strConn);
+						conn.Open();
+						SqlCommand changeQuan = new SqlCommand("UPDATE temp_Import_data SET Quantity = " + newQuantity + " WHERE PID = '" + pid + "'", conn);
+						changeQuan.ExecuteNonQuery();
+						changeQuan = new SqlCommand("UPDATE newTempProduct SET PQuantity = " + newQuantity + " WHERE PID = '" + pid + "'", conn);
+						changeQuan.ExecuteNonQuery();
+						showGrid();
+					}
+					else
+					{
+						MessageBox.Show("Please enter a number, not non-numerical", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					}
+				}
+
+
+			}
+			catch (TaskCanceledException)
+			{
+
+			}
+		}
 	}
 }

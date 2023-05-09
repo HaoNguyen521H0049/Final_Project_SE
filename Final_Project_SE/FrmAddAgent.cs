@@ -59,6 +59,8 @@ namespace Final_Project_SE
 
 		private async void un_kp(object sender, KeyPressEventArgs e)
 		{
+			delaying.Cancel();
+			delaying = new CancellationTokenSource();
 			try
 			{
 				await Task.Delay(DelayTime, delaying.Token);

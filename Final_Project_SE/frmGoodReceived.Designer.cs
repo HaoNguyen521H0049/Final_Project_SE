@@ -54,32 +54,32 @@
 			this.btnCommit = new System.Windows.Forms.Button();
 			this.btnCancel = new System.Windows.Forms.Button();
 			this.groupBox3 = new System.Windows.Forms.GroupBox();
-			this.label14 = new System.Windows.Forms.Label();
-			this.Check_neverExist = new System.Windows.Forms.CheckBox();
-			this.tb_addProduct_i = new System.Windows.Forms.TextBox();
-			this.tb_ProductID_i = new System.Windows.Forms.TextBox();
-			this.cb_selectGood_i = new System.Windows.Forms.ComboBox();
-			this.label11 = new System.Windows.Forms.Label();
-			this.tb_ProductQuantity_i = new System.Windows.Forms.TextBox();
-			this.label10 = new System.Windows.Forms.Label();
-			this.groupBox4 = new System.Windows.Forms.GroupBox();
 			this.tb_Price_i = new System.Windows.Forms.TextBox();
 			this.label13 = new System.Windows.Forms.Label();
-			this.btnAdd = new System.Windows.Forms.Button();
+			this.Check_neverExist = new System.Windows.Forms.CheckBox();
 			this.tb_ProductColor = new System.Windows.Forms.TextBox();
-			this.tdks = new System.Windows.Forms.Label();
-			this.tb_ProductMemo = new System.Windows.Forms.TextBox();
 			this.label12 = new System.Windows.Forms.Label();
-			this.btn_delete = new System.Windows.Forms.Button();
-			this.dataGridView1 = new System.Windows.Forms.DataGridView();
+			this.label10 = new System.Windows.Forms.Label();
+			this.tdks = new System.Windows.Forms.Label();
+			this.tb_addProduct_i = new System.Windows.Forms.TextBox();
+			this.label11 = new System.Windows.Forms.Label();
+			this.tb_ProductID_i = new System.Windows.Forms.TextBox();
+			this.tb_ProductMemo = new System.Windows.Forms.TextBox();
+			this.tb_ProductQuantity_i = new System.Windows.Forms.TextBox();
+			this.label14 = new System.Windows.Forms.Label();
+			this.cb_selectGood_i = new System.Windows.Forms.ComboBox();
+			this.groupBox4 = new System.Windows.Forms.GroupBox();
+			this.tb_Quant_i_old = new System.Windows.Forms.TextBox();
+			this.tb_Price_i_old = new System.Windows.Forms.TextBox();
+			this.cb_color_i = new System.Windows.Forms.ComboBox();
+			this.cb_memo_i = new System.Windows.Forms.ComboBox();
 			this.label15 = new System.Windows.Forms.Label();
 			this.label16 = new System.Windows.Forms.Label();
 			this.label17 = new System.Windows.Forms.Label();
 			this.label18 = new System.Windows.Forms.Label();
-			this.cb_memo_i = new System.Windows.Forms.ComboBox();
-			this.cb_color_i = new System.Windows.Forms.ComboBox();
-			this.tb_Price_i_old = new System.Windows.Forms.TextBox();
-			this.tb_Quant_i_old = new System.Windows.Forms.TextBox();
+			this.btnAdd = new System.Windows.Forms.Button();
+			this.btn_delete = new System.Windows.Forms.Button();
+			this.dataGridView1 = new System.Windows.Forms.DataGridView();
 			this.groupBox1.SuspendLayout();
 			this.groupBox2.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.DGV_Receipt_i)).BeginInit();
@@ -301,6 +301,7 @@
 			this.DGV_Receipt_i.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.DGV_Receipt_i.Size = new System.Drawing.Size(612, 136);
 			this.DGV_Receipt_i.TabIndex = 3;
+			this.DGV_Receipt_i.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.CVC_changed);
 			// 
 			// btnCommit
 			// 
@@ -347,15 +348,23 @@
 			this.groupBox3.TabIndex = 6;
 			this.groupBox3.TabStop = false;
 			// 
-			// label14
+			// tb_Price_i
 			// 
-			this.label14.AutoSize = true;
-			this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label14.Location = new System.Drawing.Point(6, 16);
-			this.label14.Name = "label14";
-			this.label14.Size = new System.Drawing.Size(81, 16);
-			this.label14.TabIndex = 6;
-			this.label14.Text = "Add Product";
+			this.tb_Price_i.Location = new System.Drawing.Point(89, 91);
+			this.tb_Price_i.Name = "tb_Price_i";
+			this.tb_Price_i.Size = new System.Drawing.Size(225, 20);
+			this.tb_Price_i.TabIndex = 10;
+			this.tb_Price_i.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Price_KP);
+			// 
+			// label13
+			// 
+			this.label13.AutoSize = true;
+			this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label13.Location = new System.Drawing.Point(7, 92);
+			this.label13.Name = "label13";
+			this.label13.Size = new System.Drawing.Size(38, 16);
+			this.label13.TabIndex = 9;
+			this.label13.Text = "Price";
 			// 
 			// Check_neverExist
 			// 
@@ -369,6 +378,44 @@
 			this.Check_neverExist.UseVisualStyleBackColor = true;
 			this.Check_neverExist.CheckedChanged += new System.EventHandler(this.Check_neverExist_CheckedChanged);
 			// 
+			// tb_ProductColor
+			// 
+			this.tb_ProductColor.Location = new System.Drawing.Point(89, 68);
+			this.tb_ProductColor.Name = "tb_ProductColor";
+			this.tb_ProductColor.Size = new System.Drawing.Size(90, 20);
+			this.tb_ProductColor.TabIndex = 7;
+			this.tb_ProductColor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Col_KP);
+			// 
+			// label12
+			// 
+			this.label12.AutoSize = true;
+			this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label12.Location = new System.Drawing.Point(185, 69);
+			this.label12.Name = "label12";
+			this.label12.Size = new System.Drawing.Size(56, 16);
+			this.label12.TabIndex = 2;
+			this.label12.Text = "Memory";
+			// 
+			// label10
+			// 
+			this.label10.AutoSize = true;
+			this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label10.Location = new System.Drawing.Point(206, 42);
+			this.label10.Name = "label10";
+			this.label10.Size = new System.Drawing.Size(55, 16);
+			this.label10.TabIndex = 0;
+			this.label10.Text = "Quantity";
+			// 
+			// tdks
+			// 
+			this.tdks.AutoSize = true;
+			this.tdks.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.tdks.Location = new System.Drawing.Point(6, 69);
+			this.tdks.Name = "tdks";
+			this.tdks.Size = new System.Drawing.Size(39, 16);
+			this.tdks.TabIndex = 6;
+			this.tdks.Text = "Color";
+			// 
 			// tb_addProduct_i
 			// 
 			this.tb_addProduct_i.Location = new System.Drawing.Point(89, 15);
@@ -376,23 +423,6 @@
 			this.tb_addProduct_i.Size = new System.Drawing.Size(225, 20);
 			this.tb_addProduct_i.TabIndex = 2;
 			this.tb_addProduct_i.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Anew_kp);
-			// 
-			// tb_ProductID_i
-			// 
-			this.tb_ProductID_i.Location = new System.Drawing.Point(89, 42);
-			this.tb_ProductID_i.Name = "tb_ProductID_i";
-			this.tb_ProductID_i.Size = new System.Drawing.Size(111, 20);
-			this.tb_ProductID_i.TabIndex = 4;
-			this.tb_ProductID_i.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PID_KP);
-			// 
-			// cb_selectGood_i
-			// 
-			this.cb_selectGood_i.FormattingEnabled = true;
-			this.cb_selectGood_i.Location = new System.Drawing.Point(92, 15);
-			this.cb_selectGood_i.Name = "cb_selectGood_i";
-			this.cb_selectGood_i.Size = new System.Drawing.Size(188, 21);
-			this.cb_selectGood_i.TabIndex = 0;
-			this.cb_selectGood_i.SelectedIndexChanged += new System.EventHandler(this.cb_selectGood_i_SelectedIndexChanged);
 			// 
 			// label11
 			// 
@@ -404,6 +434,22 @@
 			this.label11.TabIndex = 1;
 			this.label11.Text = "Product ID";
 			// 
+			// tb_ProductID_i
+			// 
+			this.tb_ProductID_i.Location = new System.Drawing.Point(89, 42);
+			this.tb_ProductID_i.Name = "tb_ProductID_i";
+			this.tb_ProductID_i.Size = new System.Drawing.Size(111, 20);
+			this.tb_ProductID_i.TabIndex = 4;
+			this.tb_ProductID_i.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PID_KP);
+			// 
+			// tb_ProductMemo
+			// 
+			this.tb_ProductMemo.Location = new System.Drawing.Point(247, 68);
+			this.tb_ProductMemo.Name = "tb_ProductMemo";
+			this.tb_ProductMemo.Size = new System.Drawing.Size(67, 20);
+			this.tb_ProductMemo.TabIndex = 5;
+			this.tb_ProductMemo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Memo_KP);
+			// 
 			// tb_ProductQuantity_i
 			// 
 			this.tb_ProductQuantity_i.Location = new System.Drawing.Point(267, 42);
@@ -412,15 +458,24 @@
 			this.tb_ProductQuantity_i.TabIndex = 3;
 			this.tb_ProductQuantity_i.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Quan_KP);
 			// 
-			// label10
+			// label14
 			// 
-			this.label10.AutoSize = true;
-			this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label10.Location = new System.Drawing.Point(206, 42);
-			this.label10.Name = "label10";
-			this.label10.Size = new System.Drawing.Size(55, 16);
-			this.label10.TabIndex = 0;
-			this.label10.Text = "Quantity";
+			this.label14.AutoSize = true;
+			this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label14.Location = new System.Drawing.Point(6, 16);
+			this.label14.Name = "label14";
+			this.label14.Size = new System.Drawing.Size(81, 16);
+			this.label14.TabIndex = 6;
+			this.label14.Text = "Add Product";
+			// 
+			// cb_selectGood_i
+			// 
+			this.cb_selectGood_i.FormattingEnabled = true;
+			this.cb_selectGood_i.Location = new System.Drawing.Point(92, 15);
+			this.cb_selectGood_i.Name = "cb_selectGood_i";
+			this.cb_selectGood_i.Size = new System.Drawing.Size(188, 21);
+			this.cb_selectGood_i.TabIndex = 0;
+			this.cb_selectGood_i.SelectedIndexChanged += new System.EventHandler(this.cb_selectGood_i_SelectedIndexChanged);
 			// 
 			// groupBox4
 			// 
@@ -441,94 +496,38 @@
 			this.groupBox4.TabIndex = 7;
 			this.groupBox4.TabStop = false;
 			// 
-			// tb_Price_i
+			// tb_Quant_i_old
 			// 
-			this.tb_Price_i.Location = new System.Drawing.Point(89, 91);
-			this.tb_Price_i.Name = "tb_Price_i";
-			this.tb_Price_i.Size = new System.Drawing.Size(225, 20);
-			this.tb_Price_i.TabIndex = 10;
-			this.tb_Price_i.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Price_KP);
+			this.tb_Quant_i_old.Location = new System.Drawing.Point(223, 68);
+			this.tb_Quant_i_old.Name = "tb_Quant_i_old";
+			this.tb_Quant_i_old.Size = new System.Drawing.Size(57, 20);
+			this.tb_Quant_i_old.TabIndex = 20;
+			this.tb_Quant_i_old.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Quant_i_old_KP);
 			// 
-			// label13
+			// tb_Price_i_old
 			// 
-			this.label13.AutoSize = true;
-			this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label13.Location = new System.Drawing.Point(7, 92);
-			this.label13.Name = "label13";
-			this.label13.Size = new System.Drawing.Size(38, 16);
-			this.label13.TabIndex = 9;
-			this.label13.Text = "Price";
+			this.tb_Price_i_old.Location = new System.Drawing.Point(51, 67);
+			this.tb_Price_i_old.Name = "tb_Price_i_old";
+			this.tb_Price_i_old.Size = new System.Drawing.Size(105, 20);
+			this.tb_Price_i_old.TabIndex = 19;
 			// 
-			// btnAdd
+			// cb_color_i
 			// 
-			this.btnAdd.BackColor = System.Drawing.Color.RoyalBlue;
-			this.btnAdd.ForeColor = System.Drawing.SystemColors.Control;
-			this.btnAdd.Location = new System.Drawing.Point(236, 334);
-			this.btnAdd.Name = "btnAdd";
-			this.btnAdd.Size = new System.Drawing.Size(197, 39);
-			this.btnAdd.TabIndex = 8;
-			this.btnAdd.Text = "Add";
-			this.btnAdd.UseVisualStyleBackColor = false;
-			this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+			this.cb_color_i.FormattingEnabled = true;
+			this.cb_color_i.Location = new System.Drawing.Point(51, 41);
+			this.cb_color_i.Name = "cb_color_i";
+			this.cb_color_i.Size = new System.Drawing.Size(91, 21);
+			this.cb_color_i.TabIndex = 18;
+			this.cb_color_i.SelectedIndexChanged += new System.EventHandler(this.cb_color_i_SelectedIndexChanged);
 			// 
-			// tb_ProductColor
+			// cb_memo_i
 			// 
-			this.tb_ProductColor.Location = new System.Drawing.Point(89, 68);
-			this.tb_ProductColor.Name = "tb_ProductColor";
-			this.tb_ProductColor.Size = new System.Drawing.Size(90, 20);
-			this.tb_ProductColor.TabIndex = 7;
-			this.tb_ProductColor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Col_KP);
-			// 
-			// tdks
-			// 
-			this.tdks.AutoSize = true;
-			this.tdks.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.tdks.Location = new System.Drawing.Point(6, 69);
-			this.tdks.Name = "tdks";
-			this.tdks.Size = new System.Drawing.Size(39, 16);
-			this.tdks.TabIndex = 6;
-			this.tdks.Text = "Color";
-			// 
-			// tb_ProductMemo
-			// 
-			this.tb_ProductMemo.Location = new System.Drawing.Point(247, 68);
-			this.tb_ProductMemo.Name = "tb_ProductMemo";
-			this.tb_ProductMemo.Size = new System.Drawing.Size(67, 20);
-			this.tb_ProductMemo.TabIndex = 5;
-			this.tb_ProductMemo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Memo_KP);
-			// 
-			// label12
-			// 
-			this.label12.AutoSize = true;
-			this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label12.Location = new System.Drawing.Point(185, 69);
-			this.label12.Name = "label12";
-			this.label12.Size = new System.Drawing.Size(56, 16);
-			this.label12.TabIndex = 2;
-			this.label12.Text = "Memory";
-			// 
-			// btn_delete
-			// 
-			this.btn_delete.BackColor = System.Drawing.Color.IndianRed;
-			this.btn_delete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btn_delete.Location = new System.Drawing.Point(12, 600);
-			this.btn_delete.Name = "btn_delete";
-			this.btn_delete.Size = new System.Drawing.Size(97, 57);
-			this.btn_delete.TabIndex = 8;
-			this.btn_delete.Text = "Delete";
-			this.btn_delete.UseMnemonic = false;
-			this.btn_delete.UseVisualStyleBackColor = false;
-			this.btn_delete.Click += new System.EventHandler(this.btn_delete_Click);
-			// 
-			// dataGridView1
-			// 
-			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dataGridView1.Location = new System.Drawing.Point(12, 531);
-			this.dataGridView1.MultiSelect = false;
-			this.dataGridView1.Name = "dataGridView1";
-			this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.dataGridView1.Size = new System.Drawing.Size(612, 63);
-			this.dataGridView1.TabIndex = 14;
+			this.cb_memo_i.FormattingEnabled = true;
+			this.cb_memo_i.Location = new System.Drawing.Point(210, 41);
+			this.cb_memo_i.Name = "cb_memo_i";
+			this.cb_memo_i.Size = new System.Drawing.Size(70, 21);
+			this.cb_memo_i.TabIndex = 17;
+			this.cb_memo_i.SelectedIndexChanged += new System.EventHandler(this.cb_memo_i_SelectedIndexChanged);
 			// 
 			// label15
 			// 
@@ -570,40 +569,42 @@
 			this.label18.TabIndex = 14;
 			this.label18.Text = "Color";
 			// 
-			// cb_memo_i
+			// btnAdd
 			// 
-			this.cb_memo_i.FormattingEnabled = true;
-			this.cb_memo_i.Location = new System.Drawing.Point(210, 41);
-			this.cb_memo_i.Name = "cb_memo_i";
-			this.cb_memo_i.Size = new System.Drawing.Size(70, 21);
-			this.cb_memo_i.TabIndex = 17;
-			this.cb_memo_i.SelectedIndexChanged += new System.EventHandler(this.cb_memo_i_SelectedIndexChanged);
+			this.btnAdd.BackColor = System.Drawing.Color.RoyalBlue;
+			this.btnAdd.ForeColor = System.Drawing.SystemColors.Control;
+			this.btnAdd.Location = new System.Drawing.Point(236, 334);
+			this.btnAdd.Name = "btnAdd";
+			this.btnAdd.Size = new System.Drawing.Size(197, 39);
+			this.btnAdd.TabIndex = 8;
+			this.btnAdd.Text = "Add";
+			this.btnAdd.UseVisualStyleBackColor = false;
+			this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
 			// 
-			// cb_color_i
+			// btn_delete
 			// 
-			this.cb_color_i.FormattingEnabled = true;
-			this.cb_color_i.Location = new System.Drawing.Point(51, 41);
-			this.cb_color_i.Name = "cb_color_i";
-			this.cb_color_i.Size = new System.Drawing.Size(91, 21);
-			this.cb_color_i.TabIndex = 18;
-			this.cb_color_i.SelectedIndexChanged += new System.EventHandler(this.cb_color_i_SelectedIndexChanged);
+			this.btn_delete.BackColor = System.Drawing.Color.IndianRed;
+			this.btn_delete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btn_delete.Location = new System.Drawing.Point(12, 600);
+			this.btn_delete.Name = "btn_delete";
+			this.btn_delete.Size = new System.Drawing.Size(97, 57);
+			this.btn_delete.TabIndex = 8;
+			this.btn_delete.Text = "Delete";
+			this.btn_delete.UseMnemonic = false;
+			this.btn_delete.UseVisualStyleBackColor = false;
+			this.btn_delete.Click += new System.EventHandler(this.btn_delete_Click);
 			// 
-			// tb_Price_i_old
+			// dataGridView1
 			// 
-			this.tb_Price_i_old.Location = new System.Drawing.Point(51, 67);
-			this.tb_Price_i_old.Name = "tb_Price_i_old";
-			this.tb_Price_i_old.Size = new System.Drawing.Size(105, 20);
-			this.tb_Price_i_old.TabIndex = 19;
+			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.dataGridView1.Location = new System.Drawing.Point(12, 531);
+			this.dataGridView1.MultiSelect = false;
+			this.dataGridView1.Name = "dataGridView1";
+			this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+			this.dataGridView1.Size = new System.Drawing.Size(612, 63);
+			this.dataGridView1.TabIndex = 14;
 			// 
-			// tb_Quant_i_old
-			// 
-			this.tb_Quant_i_old.Location = new System.Drawing.Point(223, 68);
-			this.tb_Quant_i_old.Name = "tb_Quant_i_old";
-			this.tb_Quant_i_old.Size = new System.Drawing.Size(57, 20);
-			this.tb_Quant_i_old.TabIndex = 20;
-			this.tb_Quant_i_old.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Quant_i_old_KP);
-			// 
-			// frmGoodReceived
+			// FrmGoodReceived
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -620,7 +621,7 @@
 			this.Controls.Add(this.groupBox1);
 			this.Controls.Add(this.label1);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-			this.Name = "frmGoodReceived";
+			this.Name = "FrmGoodReceived";
 			this.Text = "frmGoodReceiver";
 			this.Load += new System.EventHandler(this.frmGoodReceived_Load);
 			this.groupBox1.ResumeLayout(false);

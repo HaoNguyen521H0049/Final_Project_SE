@@ -599,6 +599,7 @@ namespace Final_Project_SE
 						conn.Open();
 						SqlCommand changeQuan = new SqlCommand("UPDATE temp_Receipt_data SET Quantity = " + newQuantity + " WHERE PID = '" + pid +"'", conn);
 						changeQuan.ExecuteNonQuery();
+
 						showGrid();
 					}
 					else
