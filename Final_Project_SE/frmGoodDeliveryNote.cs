@@ -446,8 +446,21 @@ namespace Final_Project_SE
 				}
 				SqlConnection conn = new SqlConnection(Program.strConn);
 				conn.Open();
-				SqlCommand cmd = new SqlCommand("DROP TABLE temp_receipt_info;DROP TABLE temp_Receipt_data;", conn);
-				cmd.ExecuteNonQuery();
+				DataTable schema1 = conn.GetSchema("Tables");
+				bool exist1 = schema1.Rows.OfType<DataRow>().Any(row => row["TABLE_NAME"].ToString() == "temp_receipt_info");
+				if (exist1)
+				{
+					SqlCommand deleteTables = new SqlCommand("Drop Table temp_receipt_info", conn);
+					deleteTables.ExecuteNonQuery();
+				}
+				DataTable schema2 = conn.GetSchema("Tables");
+				bool exist2 = schema2.Rows.OfType<DataRow>().Any(row => row["TABLE_NAME"].ToString() == "temp_Receipt_data");
+				if (exist2)
+				{
+					SqlCommand deleteTables = new SqlCommand("Drop Table temp_Receipt_data", conn);
+					deleteTables.ExecuteNonQuery();
+				}
+				
 				btnCancel.Enabled= false;
 				this.Close();
 			}

@@ -37,10 +37,31 @@ namespace Final_Project_SE
 				{
 					this.Close();
 				}
+
 				SqlConnection conn = new SqlConnection(Program.strConn);
 				conn.Open();
-				SqlCommand cmd = new SqlCommand("DROP TABLE temp_Import_info;DROP TABLE temp_Import_data;DROP TABLE newTempProduct", conn);
-				cmd.ExecuteNonQuery();
+
+				DataTable schema1 = conn.GetSchema("Tables");
+				bool exist1 = schema1.Rows.OfType<DataRow>().Any(row => row["TABLE_NAME"].ToString() == "newTempProduct");
+				if (exist1)
+				{
+					SqlCommand deleteTables = new SqlCommand("Drop Table newTempProduct", conn);
+					deleteTables.ExecuteNonQuery();
+				}
+				DataTable schema2 = conn.GetSchema("Tables");
+				bool exist2 = schema2.Rows.OfType<DataRow>().Any(row => row["TABLE_NAME"].ToString() == "temp_Import_data");
+				if (exist2)
+				{
+					SqlCommand deleteTables = new SqlCommand("Drop Table temp_Import_data", conn);
+					deleteTables.ExecuteNonQuery();
+				}
+				DataTable schema3 = conn.GetSchema("Tables");
+				bool exist3 = schema3.Rows.OfType<DataRow>().Any(row => row["TABLE_NAME"].ToString() == "temp_Import_info");
+				if (exist3)
+				{
+					SqlCommand deleteTables = new SqlCommand("Drop Table temp_Import_info", conn);
+					deleteTables.ExecuteNonQuery();
+				}
 				btnCancel.Enabled = false;
 				this.Close();
 			}
