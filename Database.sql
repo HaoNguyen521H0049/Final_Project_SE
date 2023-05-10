@@ -98,19 +98,20 @@ CREATE TABLE [dbo].[Import_details](
 );
 go
 
-insert into Receipt_details (OrderID, PID, Quantity, PPrice) values 
-							(1,N'GP3A64P',100,42100),
-							(1,N'IPXS128B',100,88800),
-							(1,N'IPXS512B',100,88800),
-							(1,N'GP3A64P',100,12300),
-							(1,N'GP3A64P',100,42400),
-							(2,N'GP3A64P',100,55500),
-							(2,N'IPXS128B',100,41100),
-							(2,N'GP3A64P',100,46400),
-							(3,N'IPXS128B',100,66400),
-							(4,N'IPXS128B',100,12300)
-;
+CREATE TABLE [dbo].[Export_Requests](
+		[RequestID] [int] NOT NULL,
+		[PID] [nvarchar](20) NULL,
+		[Quantity] [int] NULL,
+		[username] [varchar](20) NOT NULL,
+		FOREIGN KEY	(RequestID) REFERENCES Good_Delivery_Note(exportReceiptNo),
+		FOREIGN KEY	(PID) REFERENCES Product(PID),
+		FOREIGN KEY	(username) REFERENCES Login_Management(username),
+);
 
+
+
+
+go
 GO
 INSERT [dbo].[Login_Management] ([username], [password], [role], [Firstname] ,[Lastname] ,[Email] ) VALUES (N'admin', N'admin', N'admin', N' Nguyễn Đức Nhật', N'Hào',N'521h0049@student.tdtu.edu.vn')
 INSERT [dbo].[Login_Management] ([username], [password], [role], [Firstname] ,[Lastname] ,[Email] ) VALUES (N'agent', N'agent', N'agent', N'Trương Chấn ', N'Bửu',N'01234@gmail.com')
@@ -169,3 +170,14 @@ INSERT [dbo].[Good_Delivery_Note] ([dateCreated], [exportReceiptNo], [ReceiverNa
 INSERT [dbo].[Good_Delivery_Note] ([dateCreated], [exportReceiptNo], [ReceiverName], [issuingReason], [exportFactory], [FactoryLocation], [IsPaid]) VALUES (CAST(N'2023-04-11' AS DATE), 11, N'Chấn Bửu', N'Đại lý nhập hàng', N'FPT', N'325 Nguyễn T.Thập, Q3, TPHCM',1)
 INSERT [dbo].[Good_Delivery_Note] ([dateCreated], [exportReceiptNo], [ReceiverName], [issuingReason], [exportFactory], [FactoryLocation], [IsPaid]) VALUES (CAST(N'2023-04-12' AS DATE), 12, N'Nhật Hào', N'Đại lý nhập hàng', N'CellphoneS', N'227 Nguyễn T.Thập, Q8, TPHCM',1)
 GO
+insert into Receipt_details (OrderID, PID, Quantity, PPrice) values 
+							(1,N'GP3A64P',100,42100),
+							(1,N'IPXS128B',100,88800),
+							(1,N'IPXS512B',100,88800),
+							(1,N'GP3A64P',100,12300),
+							(1,N'GP3A64P',100,42400),
+							(2,N'GP3A64P',100,55500),
+							(2,N'IPXS128B',100,41100),
+							(2,N'GP3A64P',100,46400),
+							(3,N'IPXS128B',100,66400),
+							(4,N'IPXS128B',100,12300);
