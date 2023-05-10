@@ -82,14 +82,14 @@ namespace Final_Project_SE
 				int count = (int)cmd.ExecuteScalar();
 				if (count > 0)
 				{
-					return false;
+					return true;
 				}
 			}
 			catch (Exception ex)
 			{
-				return false;
+				return true;
 			}
-			return true;
+			return false;
 		}
 
 		private void frmAddAgent_Load(object sender, EventArgs e)

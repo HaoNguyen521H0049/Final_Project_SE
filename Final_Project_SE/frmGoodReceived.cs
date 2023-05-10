@@ -795,7 +795,7 @@ namespace Final_Project_SE
 					cmdz.ExecuteNonQuery();
 					MessageBox.Show("Successfully", "finished");
 					this.Close();
-					FrmGoodDeliveryNote f = new FrmGoodDeliveryNote();
+					FrmGoodReceived f = new FrmGoodReceived();
 					f.Show();
 				}
 				else

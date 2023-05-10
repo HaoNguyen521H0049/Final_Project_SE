@@ -110,6 +110,12 @@
     <Compile Include="FrmProductReport.Designer.cs">
       <DependentUpon>FrmProductReport.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmUpdateAgentRequest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmUpdateAgentRequest.Designer.cs">
+      <DependentUpon>FrmUpdateAgentRequest.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmUpdateStatus.cs">
       <SubType>Form</SubType>
     </Compile>

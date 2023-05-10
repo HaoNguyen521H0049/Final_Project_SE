@@ -63,5 +63,12 @@ namespace Final_Project_SE
 			f.MdiParent = this;
 			f.Show();
 		}
+
+		private void updateAgentRequestToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			FrmUpdateAgentRequest f = new FrmUpdateAgentRequest();
+			f.MdiParent = this;
+			f.Show();
+		}
 	}
 }

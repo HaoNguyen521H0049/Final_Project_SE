@@ -34,6 +34,7 @@
 			this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.importToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.exportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.updatePaidStatusToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.managementToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
 			this.agentAccountManagementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -43,7 +44,7 @@
 			this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.managementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.addAgentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.updatePaidStatusToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.updateAgentRequestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuStrip1.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -64,7 +65,8 @@
 			this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.importToolStripMenuItem,
             this.exportToolStripMenuItem,
-            this.updatePaidStatusToolStripMenuItem});
+            this.updatePaidStatusToolStripMenuItem,
+            this.updateAgentRequestToolStripMenuItem});
 			this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
 			this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
 			this.fileToolStripMenuItem.Text = "File";
@@ -72,16 +74,23 @@
 			// importToolStripMenuItem
 			// 
 			this.importToolStripMenuItem.Name = "importToolStripMenuItem";
-			this.importToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.importToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
 			this.importToolStripMenuItem.Text = "Import ";
 			this.importToolStripMenuItem.Click += new System.EventHandler(this.importToolStripMenuItem_Click);
 			// 
 			// exportToolStripMenuItem
 			// 
 			this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
-			this.exportToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.exportToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
 			this.exportToolStripMenuItem.Text = "Export";
 			this.exportToolStripMenuItem.Click += new System.EventHandler(this.exportToolStripMenuItem_Click);
+			// 
+			// updatePaidStatusToolStripMenuItem
+			// 
+			this.updatePaidStatusToolStripMenuItem.Name = "updatePaidStatusToolStripMenuItem";
+			this.updatePaidStatusToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+			this.updatePaidStatusToolStripMenuItem.Text = "Update Paid Status";
+			this.updatePaidStatusToolStripMenuItem.Click += new System.EventHandler(this.updatePaidStatusToolStripMenuItem_Click);
 			// 
 			// managementToolStripMenuItem1
 			// 
@@ -148,12 +157,12 @@
 			this.addAgentToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
 			this.addAgentToolStripMenuItem.Text = "Add Agent";
 			// 
-			// updatePaidStatusToolStripMenuItem
+			// updateAgentRequestToolStripMenuItem
 			// 
-			this.updatePaidStatusToolStripMenuItem.Name = "updatePaidStatusToolStripMenuItem";
-			this.updatePaidStatusToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-			this.updatePaidStatusToolStripMenuItem.Text = "Update Paid Status";
-			this.updatePaidStatusToolStripMenuItem.Click += new System.EventHandler(this.updatePaidStatusToolStripMenuItem_Click);
+			this.updateAgentRequestToolStripMenuItem.Name = "updateAgentRequestToolStripMenuItem";
+			this.updateAgentRequestToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+			this.updateAgentRequestToolStripMenuItem.Text = "Update Agent Request";
+			this.updateAgentRequestToolStripMenuItem.Click += new System.EventHandler(this.updateAgentRequestToolStripMenuItem_Click);
 			// 
 			// FrmMainControlPage
 			// 
@@ -190,5 +199,6 @@
 		private System.Windows.Forms.ToolStripMenuItem productReportToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem monthlyReportToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem updatePaidStatusToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem updateAgentRequestToolStripMenuItem;
 	}
 }
