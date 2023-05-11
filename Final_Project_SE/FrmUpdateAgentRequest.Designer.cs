@@ -28,7 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.dataGridView1 = new System.Windows.Forms.DataGridView();
+			this.DGV_currentProduct = new System.Windows.Forms.DataGridView();
 			this.btnCancel = new System.Windows.Forms.Button();
 			this.btnCommit = new System.Windows.Forms.Button();
 			this.DGV_Export_e = new System.Windows.Forms.DataGridView();
@@ -49,28 +49,33 @@
 			this.label1 = new System.Windows.Forms.Label();
 			this.label4 = new System.Windows.Forms.Label();
 			this.DGV_ARequest = new System.Windows.Forms.DataGridView();
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+			this.label5 = new System.Windows.Forms.Label();
+			this.label10 = new System.Windows.Forms.Label();
+			((System.ComponentModel.ISupportInitialize)(this.DGV_currentProduct)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.DGV_Export_e)).BeginInit();
 			this.groupBox2.SuspendLayout();
 			this.groupBox1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.DGV_ARequest)).BeginInit();
 			this.SuspendLayout();
 			// 
-			// dataGridView1
+			// DGV_currentProduct
 			// 
-			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dataGridView1.Location = new System.Drawing.Point(679, 360);
-			this.dataGridView1.MultiSelect = false;
-			this.dataGridView1.Name = "dataGridView1";
-			this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.dataGridView1.Size = new System.Drawing.Size(612, 151);
-			this.dataGridView1.TabIndex = 22;
+			this.DGV_currentProduct.AllowUserToAddRows = false;
+			this.DGV_currentProduct.AllowUserToDeleteRows = false;
+			this.DGV_currentProduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.DGV_currentProduct.Location = new System.Drawing.Point(391, 405);
+			this.DGV_currentProduct.MultiSelect = false;
+			this.DGV_currentProduct.Name = "DGV_currentProduct";
+			this.DGV_currentProduct.ReadOnly = true;
+			this.DGV_currentProduct.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+			this.DGV_currentProduct.Size = new System.Drawing.Size(612, 151);
+			this.DGV_currentProduct.TabIndex = 22;
 			// 
 			// btnCancel
 			// 
 			this.btnCancel.BackColor = System.Drawing.Color.LightCoral;
 			this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnCancel.Location = new System.Drawing.Point(1126, 517);
+			this.btnCancel.Location = new System.Drawing.Point(838, 562);
 			this.btnCancel.Name = "btnCancel";
 			this.btnCancel.Size = new System.Drawing.Size(165, 57);
 			this.btnCancel.TabIndex = 20;
@@ -81,19 +86,23 @@
 			// 
 			this.btnCommit.BackColor = System.Drawing.Color.DarkSeaGreen;
 			this.btnCommit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnCommit.Location = new System.Drawing.Point(945, 517);
+			this.btnCommit.Location = new System.Drawing.Point(656, 562);
 			this.btnCommit.Name = "btnCommit";
 			this.btnCommit.Size = new System.Drawing.Size(165, 57);
 			this.btnCommit.TabIndex = 19;
 			this.btnCommit.Text = "Commit";
 			this.btnCommit.UseVisualStyleBackColor = false;
+			this.btnCommit.Click += new System.EventHandler(this.btnCommit_Click);
 			// 
 			// DGV_Export_e
 			// 
+			this.DGV_Export_e.AllowUserToAddRows = false;
+			this.DGV_Export_e.AllowUserToDeleteRows = false;
 			this.DGV_Export_e.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.DGV_Export_e.Location = new System.Drawing.Point(679, 204);
+			this.DGV_Export_e.Location = new System.Drawing.Point(390, 224);
 			this.DGV_Export_e.MultiSelect = false;
 			this.DGV_Export_e.Name = "DGV_Export_e";
+			this.DGV_Export_e.ReadOnly = true;
 			this.DGV_Export_e.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.DGV_Export_e.Size = new System.Drawing.Size(612, 150);
 			this.DGV_Export_e.TabIndex = 18;
@@ -105,7 +114,7 @@
 			this.groupBox2.Controls.Add(this.label9);
 			this.groupBox2.Controls.Add(this.label8);
 			this.groupBox2.Controls.Add(this.TB_ReceiptNo_e);
-			this.groupBox2.Location = new System.Drawing.Point(824, 51);
+			this.groupBox2.Location = new System.Drawing.Point(535, 51);
 			this.groupBox2.Name = "groupBox2";
 			this.groupBox2.Size = new System.Drawing.Size(332, 41);
 			this.groupBox2.TabIndex = 17;
@@ -156,7 +165,7 @@
 			this.groupBox1.Controls.Add(this.TB_TargetStockName_e);
 			this.groupBox1.Controls.Add(this.TB_Reason_e);
 			this.groupBox1.Controls.Add(this.TB_ReceiverName_e);
-			this.groupBox1.Location = new System.Drawing.Point(679, 98);
+			this.groupBox1.Location = new System.Drawing.Point(390, 98);
 			this.groupBox1.Name = "groupBox1";
 			this.groupBox1.Size = new System.Drawing.Size(612, 100);
 			this.groupBox1.TabIndex = 16;
@@ -234,7 +243,7 @@
 			// 
 			this.label1.AutoSize = true;
 			this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label1.Location = new System.Drawing.Point(215, 9);
+			this.label1.Location = new System.Drawing.Point(78, 9);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(245, 39);
 			this.label1.TabIndex = 15;
@@ -244,7 +253,7 @@
 			// 
 			this.label4.AutoSize = true;
 			this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label4.Location = new System.Drawing.Point(867, 9);
+			this.label4.Location = new System.Drawing.Point(578, 9);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(262, 39);
 			this.label4.TabIndex = 23;
@@ -252,21 +261,47 @@
 			// 
 			// DGV_ARequest
 			// 
+			this.DGV_ARequest.AllowUserToAddRows = false;
+			this.DGV_ARequest.AllowUserToDeleteRows = false;
 			this.DGV_ARequest.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.DGV_ARequest.Location = new System.Drawing.Point(19, 63);
+			this.DGV_ARequest.Location = new System.Drawing.Point(19, 51);
 			this.DGV_ARequest.Name = "DGV_ARequest";
+			this.DGV_ARequest.ReadOnly = true;
 			this.DGV_ARequest.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.DGV_ARequest.Size = new System.Drawing.Size(634, 511);
+			this.DGV_ARequest.Size = new System.Drawing.Size(365, 568);
 			this.DGV_ARequest.TabIndex = 24;
+			this.DGV_ARequest.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CC_checkInfo);
+			// 
+			// label5
+			// 
+			this.label5.AutoSize = true;
+			this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label5.Location = new System.Drawing.Point(390, 205);
+			this.label5.Name = "label5";
+			this.label5.Size = new System.Drawing.Size(138, 16);
+			this.label5.TabIndex = 25;
+			this.label5.Text = "Agent request product";
+			// 
+			// label10
+			// 
+			this.label10.AutoSize = true;
+			this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label10.Location = new System.Drawing.Point(390, 386);
+			this.label10.Name = "label10";
+			this.label10.Size = new System.Drawing.Size(145, 16);
+			this.label10.TabIndex = 26;
+			this.label10.Text = "Current product in stock";
 			// 
 			// FrmUpdateAgentRequest
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(1303, 605);
+			this.ClientSize = new System.Drawing.Size(1015, 631);
+			this.Controls.Add(this.label10);
+			this.Controls.Add(this.label5);
 			this.Controls.Add(this.DGV_ARequest);
 			this.Controls.Add(this.label4);
-			this.Controls.Add(this.dataGridView1);
+			this.Controls.Add(this.DGV_currentProduct);
 			this.Controls.Add(this.btnCancel);
 			this.Controls.Add(this.btnCommit);
 			this.Controls.Add(this.DGV_Export_e);
@@ -276,7 +311,7 @@
 			this.Name = "FrmUpdateAgentRequest";
 			this.Text = "FrmUpdateAgentRequest";
 			this.Load += new System.EventHandler(this.FrmUpdateAgentRequest_Load);
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.DGV_currentProduct)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.DGV_Export_e)).EndInit();
 			this.groupBox2.ResumeLayout(false);
 			this.groupBox2.PerformLayout();
@@ -290,7 +325,7 @@
 
 		#endregion
 
-		private System.Windows.Forms.DataGridView dataGridView1;
+		private System.Windows.Forms.DataGridView DGV_currentProduct;
 		private System.Windows.Forms.Button btnCancel;
 		private System.Windows.Forms.Button btnCommit;
 		private System.Windows.Forms.DataGridView DGV_Export_e;
@@ -311,5 +346,7 @@
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Label label4;
 		private System.Windows.Forms.DataGridView DGV_ARequest;
+		private System.Windows.Forms.Label label5;
+		private System.Windows.Forms.Label label10;
 	}
 }
