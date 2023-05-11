@@ -81,6 +81,7 @@
 			this.btnCancel.TabIndex = 20;
 			this.btnCancel.Text = "Cancel";
 			this.btnCancel.UseVisualStyleBackColor = false;
+			this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
 			// 
 			// btnCommit
 			// 
@@ -271,6 +272,7 @@
 			this.DGV_ARequest.Size = new System.Drawing.Size(365, 568);
 			this.DGV_ARequest.TabIndex = 24;
 			this.DGV_ARequest.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CC_checkInfo);
+			this.DGV_ARequest.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.CM_checkInfo);
 			// 
 			// label5
 			// 

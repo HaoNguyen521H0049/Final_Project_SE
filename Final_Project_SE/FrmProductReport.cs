@@ -35,8 +35,8 @@ namespace Final_Project_SE
 		{
 			int option = int.Parse(Cb_selection.SelectedValue.ToString());
 			string query;
-			if (option == 1) { query = "SELECT TOP 10 [Product].*, COUNT(*) AS [DeliveryCount] FROM [Product] JOIN [Receipt_details] ON [Product].[PID] = [Receipt_details].[PID] JOIN [Good_delivery_note] ON [Receipt_details].[OrderID] = [Good_delivery_note].[exportReceiptNo] GROUP BY [Product].[PID], [Product].[PName], [Product].[PMemory], [Product].[PColor], [Product].[PQuantity], [Product].[PPrice] ORDER BY COUNT(*) DESC "; }
-			else if (option == 2) { query = "SELECT TOP 10 [Product].*, COUNT(*) AS [DeliveryCount] FROM [Product] JOIN [Receipt_details] ON [Product].[PID] = [Receipt_details].[PID] JOIN [Good_delivery_note] ON [Receipt_details].[OrderID] = [Good_delivery_note].[exportReceiptNo] GROUP BY [Product].[PID], [Product].[PName], [Product].[PMemory], [Product].[PColor], [Product].[PQuantity], [Product].[PPrice] ORDER BY COUNT(*) ASC "; }
+			if (option == 1) { query = "SELECT TOP 10 [Product].*, COUNT(*) AS [DeliveryCount] FROM [Product] JOIN [Receipt_details] ON [Product].[PID] = [Receipt_details].[PID] JOIN [Good_delivery_note] ON [Receipt_details].[OrderID] = [Good_delivery_note].[exportReceiptNo] GROUP BY [Product].[PID], [Product].[PName], [Product].[PMemory], [Product].[PColor], [Product].[PQuantity], [Product].[PPrice], [Product].[img] ORDER BY COUNT(*) DESC"; }
+			else if (option == 2) { query = "SELECT TOP 10 [Product].*, COUNT(*) AS [DeliveryCount] FROM [Product] JOIN [Receipt_details] ON [Product].[PID] = [Receipt_details].[PID] JOIN [Good_delivery_note] ON [Receipt_details].[OrderID] = [Good_delivery_note].[exportReceiptNo] GROUP BY [Product].[PID], [Product].[PName], [Product].[PMemory], [Product].[PColor], [Product].[PQuantity], [Product].[PPrice], [Product].[img] ORDER BY COUNT(*) ASC"; }
 			else if (option == 3) { query = "SELECT * FROM [Product] WHERE [PQuantity] > 0; "; }
 			else { query = "SELECT * FROM [Product] WHERE [PQuantity] = 0"; }
 

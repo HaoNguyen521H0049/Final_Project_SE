@@ -68,7 +68,7 @@ namespace Final_Project_SE
 		{
 			SqlConnection conn = new SqlConnection(Program.strConn);
 			conn.Open();
-			SqlCommand cmd = new SqlCommand("SELECT request_date, DISTINCT requestID FROM Export_Requests", conn);
+			SqlCommand cmd = new SqlCommand("SELECT DISTINCT requestID, request_date  FROM Export_Requests", conn);
 			SqlDataAdapter adapter = new SqlDataAdapter(cmd);
 			DataTable dt = new DataTable();
 			adapter.Fill(dt);
@@ -87,10 +87,14 @@ namespace Final_Project_SE
 		{
 			TB_ReceiptNo_e.Text = "" + autoCount();
 			TB_ReceiptNo_e.Enabled = false;
+			
+			int requestedId = Convert.ToInt32(DGV_ARequest.SelectedRows[0].Cells["requestId"].Value);
+			
 
 			SqlConnection conn = new SqlConnection(Program.strConn);
 			conn.Open();
-			SqlCommand cmd = new SqlCommand("SELECT LM.Firstname, LM.Lastname, AID.exportFactory, AID.FactoryLocation FROM Login_Management LM JOIN Agent_Info_details AID ON LM.username = AID.username", conn);
+			SqlCommand cmd = new SqlCommand("SELECT LM.firstname, LM.lastname, AD.exportFactory, AD.FactoryLocation FROM Login_Management LM JOIN Export_Requests ER ON LM.username = ER.username JOIN Agent_Info_details AD ON LM.username = AD.username WHERE ER.requestID = @requestedId", conn);
+			cmd.Parameters.AddWithValue("@requestedId", requestedId);
 			SqlDataAdapter adapter = new SqlDataAdapter(cmd);
 			DataTable dt = new DataTable();
 			adapter.Fill(dt);
@@ -105,12 +109,23 @@ namespace Final_Project_SE
 			TB_TargetStockName_e.Enabled = false;
 			TB_TargetStockLocation_e.Enabled = false;
 
-			cmd = new SqlCommand("SELECT P.PID, P.PName, ER.Quantity, P.PPrice, (ER.Quantity * P.PPrice) AS total_Price FROM Product P JOIN Export_Requests ER ON P.PID = ER.PID", conn);
+			cmd = new SqlCommand("SELECT P.PID, P.PName, SUM(ER.Quantity) AS Quantity, P.PPrice, SUM(ER.Quantity * P.PPrice) AS total_Price FROM Product P JOIN Export_Requests ER ON P.PID = ER.PID WHERE ER.requestId = @requestedId GROUP BY P.PID, P.PName, P.PPrice", conn);
+			cmd.Parameters.AddWithValue("@requestedId", requestedId);
 			adapter = new SqlDataAdapter(cmd);
 			dt = new DataTable();
 			adapter.Fill(dt);
+
 			if (dt.Rows.Count > 0)
 			{
+				foreach (DataRow row in dt.Rows)
+				{
+					int quantity = Convert.ToInt32(row["Quantity"]);
+					int price = Convert.ToInt32(row["PPrice"]);
+					int totalPrice = quantity * price;
+					row["Quantity"] = quantity;
+					row["total_Price"] = totalPrice;
+				}
+
 				DGV_Export_e.DataSource = dt;
 			}
 			else
@@ -118,7 +133,9 @@ namespace Final_Project_SE
 				MessageBox.Show("No request data", "Request empty", MessageBoxButtons.OK, MessageBoxIcon.Information);
 			}
 
-			cmd = new SqlCommand("SELECT P.PID, P.PName, P.PQuantity FROM Product P INNER JOIN Export_Requests ER ON P.PID = ER.PID ", conn);
+
+			cmd = new SqlCommand("SELECT DISTINCT P.PID, P.PName, P.PQuantity FROM Product P INNER JOIN Export_Requests ER ON P.PID = ER.PID WHERE ER.requestId = @requestedId", conn);
+			cmd.Parameters.AddWithValue("@requestedId", requestedId);
 			adapter = new SqlDataAdapter(cmd);
 			dt = new DataTable();
 			adapter.Fill(dt);
@@ -131,6 +148,7 @@ namespace Final_Project_SE
 				MessageBox.Show("No request data", "Request empty", MessageBoxButtons.OK, MessageBoxIcon.Information);
 			}
 			btnCommit.Enabled = true;
+			conn.Close();
 		}
 
 		private void btnCommit_Click(object sender, EventArgs e)
@@ -190,22 +208,51 @@ namespace Final_Project_SE
 				
 
 				string insertReceiptDetailsQuery = "INSERT INTO Receipt_Details (OrderID, PID, Quantity, PPrice) " +
-												   "SELECT @OrderID, Export_Requests.PID, Export_Requests.Quantity, Product.PPrice " +
-												   "FROM Export_Requests " +
-												   "INNER JOIN Product ON Export_Requests.PID = Product.PID " +
-												   "WHERE Export_Requests.RequestID = @ExportReceiptNo";
+													"SELECT @ExportReceiptNo, ER.PID, ER.Quantity, P.PPrice " +
+													"FROM Export_Requests ER " +
+													"INNER JOIN Product P ON ER.PID = P.PID " +
+													"where requestId = @requestId";
 
+				
+				int requestId = Convert.ToInt32(DGV_ARequest.SelectedRows[0].Cells["requestId"].Value);
 
 				cmd = new SqlCommand(insertReceiptDetailsQuery, conn);
-					
+				cmd.Parameters.AddWithValue("@requestId", requestId);
 				cmd.Parameters.AddWithValue("@OrderID", exportReceiptNo);
 				cmd.Parameters.AddWithValue("@ExportReceiptNo", exportReceiptNo);
 
 				cmd.ExecuteNonQuery();
 
 				MessageBox.Show("Successfully", "Success", MessageBoxButtons.OK);
+
+
+				if (DGV_ARequest.SelectedRows.Count > 0)
+				{
+					requestId = Convert.ToInt32(DGV_ARequest.SelectedRows[0].Cells["requestId"].Value);
+					
+					string sql = "DELETE FROM Export_Requests WHERE requestId = @requestId";
+					cmd = new SqlCommand(sql, conn);
+					cmd.Parameters.AddWithValue("@requestId", requestId);
+					cmd.ExecuteNonQuery();
+				}
+				loadGrid();
+				DGV_ARequest.Refresh();
+				conn.Close();
+				DataGridViewRow selectedRow = DGV_ARequest.SelectedRows[0];
+				DGV_ARequest.Rows.Remove(selectedRow);
+
 			}
 
+		}
+
+		private void btnCancel_Click(object sender, EventArgs e)
+		{
+			this.Close();
+		}
+
+		private void CM_checkInfo(object sender, DataGridViewCellMouseEventArgs e)
+		{
+			
 		}
 	}
 }
