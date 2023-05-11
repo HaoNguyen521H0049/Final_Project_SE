@@ -111,6 +111,7 @@ CREATE TABLE [dbo].[Export_Requests](
 		[PID] [nvarchar](20) NULL,
 		[Quantity] [int] NULL,
 		[username] [varchar](20) NOT NULL,
+		[request_date] [date] NULL,
 		FOREIGN KEY	(PID) REFERENCES Product(PID),
 		FOREIGN KEY	(username) REFERENCES Login_Management(username),
 );
@@ -199,3 +200,17 @@ insert into Receipt_details (OrderID, PID, Quantity, PPrice) values
 							(2,N'GP3A64P',100,46400),
 							(3,N'IPXS128B',100,66400),
 							(4,N'IPXS128B',100,12300);
+
+go
+insert into Export_Requests ([RequestID] ,[PID] ,[Quantity] ,[username] ,[request_date]) values
+							(1,N'N632PK',100,N'agent',CAST(N'2023-04-12' AS DATE)),
+							(1,N'IPXS64GN',100,N'agent',CAST(N'2023-04-12' AS DATE)),
+							(1,N'XPX3P128G',100,N'agent',CAST(N'2023-04-12' AS DATE)),
+							(1,N'IP11128R',100,N'agent',CAST(N'2023-04-12' AS DATE)),
+							(1,N'XPX3P128G',100,N'agent',CAST(N'2023-04-12' AS DATE)),
+							(2,N'IPXS128B',100,N'agent',CAST(N'2023-04-12' AS DATE)),
+							(2,N'GP3A64P',100,N'agent',CAST(N'2023-04-12' AS DATE)),
+							(2,N'IPXS512B',100,N'agent',CAST(N'2023-04-12' AS DATE)),
+							(2,N'XPX3P128G',100,N'agent',CAST(N'2023-04-12' AS DATE)),
+							(2,N'IP11128R',100,N'agent',CAST(N'2023-04-12' AS DATE)),
+							(3,N'XPX3P128G',100,N'agent',CAST(N'2023-04-12' AS DATE));
