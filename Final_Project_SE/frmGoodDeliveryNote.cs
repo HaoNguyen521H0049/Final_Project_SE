@@ -82,7 +82,8 @@ namespace Final_Project_SE
 
 		private void frmGoodDeliveryNote_Load(object sender, EventArgs e)
 		{
-			disableAll();
+			TB_ReceiptNo_e.Text = ""+ autoCount();
+			TB_ReceiptNo_e.Enabled = false;
 		}
 
 		private void cb_selectGood_e_SelectedIndexChanged(object sender, EventArgs e)
@@ -163,7 +164,27 @@ namespace Final_Project_SE
 			}
 		}
 
-		private bool IsReceiptNumberExist(int receiptNumber)
+		private static int autoCount()
+		{
+			SqlConnection conn = new SqlConnection(Program.strConn);
+			conn.Open();
+			SqlCommand countCommand = new SqlCommand("SELECT COUNT(*) FROM Good_delivery_note", conn);
+			int rowCount = (int)countCommand.ExecuteScalar();
+
+			if (rowCount == 0)
+			{			
+				return 1;
+			}
+			else
+			{
+				SqlCommand maxCommand = new SqlCommand("SELECT MAX(exportReceiptNo) FROM Good_delivery_note", conn);
+				int maxNumber = (int)maxCommand.ExecuteScalar();
+				return maxNumber + 1;
+			}
+			
+		}
+
+			private bool IsReceiptNumberExist(int receiptNumber)
 		{
 			bool isExist = false;
 			SqlConnection conn = new SqlConnection(Program.strConn);

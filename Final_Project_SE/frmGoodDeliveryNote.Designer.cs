@@ -395,7 +395,7 @@
 			this.btnDelRow.UseVisualStyleBackColor = false;
 			this.btnDelRow.Click += new System.EventHandler(this.btnDelRow_Click);
 			// 
-			// frmGoodDeliveryNote
+			// FrmGoodDeliveryNote
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -410,7 +410,7 @@
 			this.Controls.Add(this.groupBox1);
 			this.Controls.Add(this.label1);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-			this.Name = "frmGoodDeliveryNote";
+			this.Name = "FrmGoodDeliveryNote";
 			this.Text = "frmGoodDeliveryNote";
 			this.Load += new System.EventHandler(this.frmGoodDeliveryNote_Load);
 			((System.ComponentModel.ISupportInitialize)(this.DGV_Export_e)).EndInit();

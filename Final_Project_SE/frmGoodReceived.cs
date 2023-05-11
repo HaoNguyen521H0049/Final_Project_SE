@@ -22,7 +22,7 @@ namespace Final_Project_SE
 		}
 
 		private CancellationTokenSource delaying = new CancellationTokenSource();
-		private const int DelayTime = 1500;
+		private const int DelayTime = 1000;
 		bool isTempTableExist = false;
 		private bool isErrorShown = false;
 		bool isFunctionExecuted = false;
@@ -235,6 +235,28 @@ namespace Final_Project_SE
 		private void frmGoodReceived_Load(object sender, EventArgs e)
 		{
 			disableAll();
+			TB_ReceiptNo_i.Text = ""+autoCount();
+			TB_ReceiptNo_i.Enabled = false;
+		}
+
+		private static int autoCount()
+		{
+			SqlConnection conn = new SqlConnection(Program.strConn);
+			conn.Open();
+			SqlCommand countCommand = new SqlCommand("SELECT COUNT(*) FROM Good_Receiver", conn);
+			int rowCount = (int)countCommand.ExecuteScalar();
+
+			if (rowCount == 0)
+			{
+				return 1;
+			}
+			else
+			{
+				SqlCommand maxCommand = new SqlCommand("SELECT MAX(receiptNo) FROM Good_Receiver", conn);
+				int maxNumber = (int)maxCommand.ExecuteScalar();
+				return maxNumber + 1;
+			}
+
 		}
 
 		private async void TB_ReceiptNo_i_TextChanged(object sender, EventArgs e)
