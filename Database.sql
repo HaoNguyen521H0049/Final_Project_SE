@@ -124,8 +124,7 @@ INSERT [dbo].[Login_Management] ([username], [password], [role], [Firstname] ,[L
 INSERT [dbo].[Login_Management] ([username], [password], [role], [Firstname] ,[Lastname] ,[Email] ) VALUES (N'agent', N'agent', N'agent', N'Trương Chấn ', N'Bửu',N'01234@gmail.com')
 INSERT [dbo].[Login_Management] ([username], [password], [role], [Firstname] ,[Lastname] ,[Email] ) VALUES (N'chidung', N'123', N'agent', N'Lương Chí', N'Dũng',N'01234@gmail.com')
 INSERT [dbo].[Login_Management] ([username], [password], [role], [Firstname] ,[Lastname] ,[Email] ) VALUES (N'vietan', N'an333', N'agent', N'Luong Viết', N'An',N'01234@gmail.com')
-INSERT [dbo].[Login_Management] ([username], [password], [role], [Firstname] ,[Lastname] ,[Email] ) VALUES (N'truongtu', N'tuga123', N'agent', N'Nguyễn Trần Trường ', N'Tú',N'01234@gmail.com')
-INSERT [dbo].[Login_Management] ([username], [password], [role], [Firstname] ,[Lastname] ,[Email] ) VALUES (N'thanhngoc', N'pemic123', N'agent', N'Thành', N'Ngọc',N'01234@gmail.com')
+
 
 
 GO

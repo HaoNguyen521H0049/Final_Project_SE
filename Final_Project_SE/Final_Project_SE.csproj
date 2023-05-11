@@ -154,6 +154,9 @@
     <EmbeddedResource Include="FrmProductReport.resx">
       <DependentUpon>FrmProductReport.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmUpdateAgentRequest.resx">
+      <DependentUpon>FrmUpdateAgentRequest.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmUpdateStatus.resx">
       <DependentUpon>FrmUpdateStatus.cs</DependentUpon>
     </EmbeddedResource>
